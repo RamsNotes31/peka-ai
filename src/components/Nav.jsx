@@ -49,7 +49,6 @@ export default function Nav() {
             <button type="button" aria-pressed={lang === 'en'} onClick={() => setLang('en')}>EN</button>
             <button type="button" aria-pressed={lang === 'id'} onClick={() => setLang('id')}>ID</button>
           </div>
-          <a className="btn btn-sm" href="#akses-awal">{t.nav.access}</a>
           <button
             ref={menuBtn}
             className="icon-btn menu-btn"

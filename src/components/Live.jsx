@@ -2,7 +2,7 @@ import { Eyebrow } from './Hero.jsx';
 import { useLang, LINKS } from '../i18n.jsx';
 
 const KEYS = ['warganet', 'wowo'];
-const SHOTS = { warganet: '/shots/warganet.png', wowo: '/shots/wowo.png' };
+const SHOTS = { warganet: '/shots/warganet.jpg', wowo: '/shots/wowo.jpg' };
 
 export default function Live() {
   const { t } = useLang();
@@ -21,7 +21,7 @@ export default function Live() {
           return (
             <article className="live-card" key={item.name}>
               <a className="shot" href={LINKS[key]} target="_blank" rel="noopener" aria-label={`${l.open} ${item.host}`}>
-                <img src={SHOTS[key]} alt={item.shotAlt} width="800" height="300" loading="lazy" />
+                <img src={SHOTS[key]} alt={item.shotAlt} width="600" height="300" loading="lazy" />
                 <span className="mono shot-cap">{item.host} · {l.shotNote}</span>
               </a>
               <div className="live-top mono">

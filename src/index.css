@@ -226,7 +226,7 @@ a { color: inherit; }
 .live-card { padding: 28px; display: flex; flex-direction: column; gap: 16px; }
 .live-card + .live-card { border-left: 1px solid var(--line); }
 .shot { display: block; margin: -28px -28px 8px; border-bottom: 1px solid var(--line); background: #ffffff; position: relative; }
-.shot img { display: block; width: 100%; height: auto; aspect-ratio: 8 / 3; object-fit: cover; object-position: top; }
+.shot img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; object-position: left top; }
 .shot-cap { position: absolute; left: 12px; bottom: 10px; background: var(--fg); color: var(--bg); padding: 3px 8px; font-size: 0.6875rem; }
 .shot:hover img { opacity: 0.92; }
 .live-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
@@ -360,7 +360,6 @@ a { color: inherit; }
   .nav-links.open { display: flex; }
   .nav-links a { padding: 14px var(--gutter); border-top: 1px solid var(--line); min-height: 44px; }
   .nav-actions { margin-left: auto; }
-  .nav-actions .btn-sm { min-height: 44px; }
   .icon-btn { width: 44px; height: 44px; }
   .menu-btn { display: inline-grid; }
   /* Tap target 44px untuk semua tautan teks di layar sentuh. */
