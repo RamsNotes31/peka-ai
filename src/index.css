@@ -177,8 +177,10 @@ a { color: inherit; }
   pointer-events: none;
 }
 .sticker-hero { width: 128px; top: 22px; right: 24px; transform: rotate(8deg); }
-.sticker-c3 { width: 92px; top: 8px; right: 14px; transform: rotate(-10deg); }
-.sticker-c4 { width: 80px; top: 10px; right: 18px; transform: rotate(12deg); }
+/* Kartu berstiker: baris judul diberi tinggi 96px, stiker duduk di sisi kanannya. Tidak menimpa teks. */
+.card.has-sticker h3 { min-height: 108px; display: flex; align-items: center; padding-right: 110px; }
+.sticker-c3 { width: 88px; top: 100px; right: 18px; transform: rotate(-10deg); }
+.sticker-c4 { width: 76px; top: 106px; right: 24px; transform: rotate(12deg); }
 .sticker-demo { width: 110px; right: -10px; bottom: -14px; transform: rotate(-12deg); }
 .card, .hero-side, .demo-output { position: relative; }
 
@@ -327,7 +329,9 @@ a { color: inherit; }
   .card { min-height: 0; border-right: 0 !important; }
   .card + .card { border-top: 1px solid var(--line); }
   .sticker-hero { width: 84px; top: 10px; right: 12px; }
-  .sticker-c3, .sticker-c4 { width: 64px; top: 10px; right: 10px; }
+  .card.has-sticker h3 { min-height: 88px; padding-right: 90px; }
+  .sticker-c3 { width: 68px; top: 102px; right: 16px; }
+  .sticker-c4 { width: 60px; top: 108px; right: 20px; }
   .sticker-demo { width: 80px; right: 6px; bottom: 6px; }
   .lang button { min-height: 44px; }
   .feed-list li { grid-template-columns: 1fr; gap: 6px; }

@@ -77,7 +77,7 @@ export default function SpecBoard() {
           </div>
         </article>
 
-        <article className="card">
+        <article className="card has-sticker">
           <Radar className="sticker-c3" />
           <CardTop n="03" label={b.c3.kindLabel} value={String(CHANNELS.length).padStart(2, '0')} />
           <h3 className="mono">{b.c3.name}</h3>
@@ -91,7 +91,7 @@ export default function SpecBoard() {
           </div>
         </article>
 
-        <article className="card">
+        <article className="card has-sticker">
           <Bell className="sticker-c4" />
           <CardTop n="04" label={b.c4.kindLabel} value={b.c4.kind} />
           <h3 className="mono">{b.c4.name}</h3>
