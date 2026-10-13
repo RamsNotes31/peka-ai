@@ -380,6 +380,8 @@ a { color: inherit; }
   .feed-list .txt { white-space: normal; }
   .sentences li { grid-template-columns: 5ch 1fr; }
   .sentences .pill { grid-column: 2; justify-self: start; }
+  .chip { min-height: 44px; }
+  .stamp { padding: 12px 0; margin: -10px 0; display: inline-block; }
   .section { padding: 56px var(--gutter); }
   .product { grid-template-columns: 1fr; gap: 10px; }
   .product-meta { grid-column: 1; }
