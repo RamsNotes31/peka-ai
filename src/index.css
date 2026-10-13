@@ -225,6 +225,10 @@ a { color: inherit; }
 .live-grid { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); }
 .live-card { padding: 28px; display: flex; flex-direction: column; gap: 16px; }
 .live-card + .live-card { border-left: 1px solid var(--line); }
+.shot { display: block; margin: -28px -28px 8px; border-bottom: 1px solid var(--line); background: #ffffff; position: relative; }
+.shot img { display: block; width: 100%; height: auto; aspect-ratio: 8 / 3; object-fit: cover; object-position: top; }
+.shot-cap { position: absolute; left: 12px; bottom: 10px; background: var(--fg); color: var(--bg); padding: 3px 8px; font-size: 0.6875rem; }
+.shot:hover img { opacity: 0.92; }
 .live-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .live-top .muted { margin-left: auto; }
 .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); border: 1px solid var(--fg); flex: none; }
@@ -386,6 +390,7 @@ a { color: inherit; }
   .product { grid-template-columns: 1fr; gap: 10px; }
   .product-meta { grid-column: 1; }
   .demo-input, .demo-output, .live-card { padding: 20px; }
+  .shot { margin: -20px -20px 4px; }
   .live-card .btn { align-self: stretch; }
   .live-top .muted { margin-left: 0; width: 100%; }
   .field-row { flex-direction: column; }
