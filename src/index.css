@@ -299,6 +299,8 @@ a { color: inherit; }
   .nav-actions .btn-sm { min-height: 44px; }
   .icon-btn { width: 44px; height: 44px; }
   .menu-btn { display: inline-grid; }
+  /* Tap target 44px untuk semua tautan teks di layar sentuh. */
+  .brand, .link, .footer-links a { min-height: 44px; display: inline-flex; align-items: center; }
   .hero-main { padding: 48px var(--gutter); }
   .hero h1 { max-width: none; }
   .ruler { max-width: none; }

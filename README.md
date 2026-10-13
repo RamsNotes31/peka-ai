@@ -92,6 +92,19 @@ Tanda Peka adalah kotak kuning dengan crosshair: lingkaran, empat garis, titik d
 
 Wordmark memakai Inter Tight 600. Kalau font tidak tersedia, SVG jatuh ke Inter atau Arial.
 
+Ikon raster (`favicon.ico`, `favicon-48.png`, `favicon-96.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `og.png`) dibuat oleh `scripts/gen-icons.mjs` tanpa dependensi. Jalankan ulang kalau tanda berubah:
+
+```bash
+node scripts/gen-icons.mjs
+```
+
+## SEO
+
+- `public/robots.txt` mengizinkan semua crawler dan menunjuk ke `sitemap.xml`.
+- `public/sitemap.xml` berisi satu URL: `https://peka.ai.id/`.
+- `index.html` memuat canonical, meta robots, Open Graph, Twitter card, JSON-LD (Organization, WebSite), dan fallback `noscript` berisi ringkasan konten.
+- Setelah deploy, daftarkan domain di [Google Search Console](https://search.google.com/search-console), kirim `https://peka.ai.id/sitemap.xml`, lalu minta pengindeksan untuk halaman utama. Ini langkah manual, tidak bisa dilakukan dari kode.
+
 ## Yang belum tersambung
 
 - **Form akses awal** mengirim `POST /v1/akses-awal` dengan body `{ "email": "..." }`. Belum ada backend. UI menampilkan pesan gagal yang jujur sampai endpoint tersedia. Endpoint diatur di `src/components/Access.jsx`.

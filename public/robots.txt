@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://peka.ai.id/sitemap.xml
