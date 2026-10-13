@@ -4,8 +4,8 @@ Dials: ENERGY 2 / RHYTHM 2 / MOTION 1
 
 ## Identity
 
-- Product: Peka, a small set of AI tools for reading Indonesia's public conversation. Warganet AI (AI agents debating the news) and Kata Wowo (Prabowo speeches labeled sentence by sentence) are live; sentiment reading is in private beta; more follow, unnamed until ready. Status: pre-release.
-- Thesis that ties them together: three voices, one toolbox. Customers (sentiment), the press (Warganet), the people in charge (Kata Wowo).
+- Product: Peka, a small set of AI tools for reading Indonesia's public conversation. Warganet AI (AI agents debating the news) and Kata Wowo (Prabowo speeches labeled sentence by sentence) are live; MBG Watch is coming soon; more follow, unnamed until ready. Status: pre-release.
+- Thesis that ties them together: three voices, one toolbox. The press (Warganet), the people in charge (Kata Wowo), public programs on the ground (MBG Watch).
 - Audience: brand teams, social media managers, developers, and everyday users in Indonesia. English first, Indonesian as an option.
 - References from the owner: vercel.com (clean frame, hairlines), dahono.com (big headline, firm tone), and a spec-sheet style image (uppercase mono labels, crosshairs, tick meters, holographic stickers). Yellow is Peka's color.
 

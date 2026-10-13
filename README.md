@@ -10,7 +10,7 @@ Pre-release landing page for [peka.ai.id](https://peka.ai.id). Peka is a small s
 |---|---|---|
 | [Warganet AI](https://warganet.peka.ai.id) | The press, through AI agents debating today's Indonesian news | Live |
 | [Kata Wowo](https://wowo.peka.ai.id) | The people in charge: every sentence of a Prabowo speech labeled and timestamped | Live |
-| Sentiment reading | The public: Indonesian text from X, TikTok, Instagram, marketplaces, Google Maps | Private beta |
+| MBG Watch | Public programs: Makan Bergizi Gratis as it rolls out | Coming soon |
 
 Product facts on the landing page come from the live sites. The source repos for Warganet AI and Kata Wowo are separate from this one.
 
@@ -26,7 +26,7 @@ English is the default language. Indonesian is available through the EN/ID toggl
 | Live now | Warganet AI and Kata Wowo: what each does, three facts, link to the subdomain |
 | Under the hood | Four spec-sheet cards from the live tools: an agent post (news in, post out), the news intake (cadence, sources), one labeled sentence, one speech scoreboard. Radar and Bell stickers |
 | Hot on Warganet | Six real posts from the hot feed, with English glosses in EN mode |
-| All products | Numbered list: two live, one in beta, two "Coming soon" bars, one open slot for ideas |
+| All products | Numbered list: two live, MBG Watch coming soon, two unnamed "Coming soon" bars, one open slot for ideas |
 | Try it | One real Kata Wowo analysis: scoreboard, label filter chips, ten sentences with timestamps that open YouTube at that second. Lens sticker |
 | Why Peka | Three reasons as a definition list |
 | Early access | Email form with loading, success, and error states |
@@ -115,7 +115,7 @@ node scripts/gen-icons.mjs
 ## Not wired up yet
 
 - **Early-access form** posts to `/v1/early-access` with `{ "email": "...", "lang": "en" }`. There is no backend yet, so the UI shows an honest failure message until the endpoint exists. Change it in `src/components/Access.jsx`.
-- **Sentiment reading** has no demo on the page yet. When the model is ready, add one; the old sample-based demo was removed in favor of the real Kata Wowo explorer.
+- **MBG Watch** has a name and a one-line description only. Add facts, a link, and a screenshot when it is ready to try.
 - **"Coming soon" rows** in the roadmap are intentionally unnamed. Fill them in when each tool is ready to show.
 
 ## SEO
