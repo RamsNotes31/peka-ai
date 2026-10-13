@@ -1,17 +1,9 @@
-import { useLang } from '../i18n.jsx';
+import { useLang, LINKS } from '../i18n.jsx';
+import { WARGANET_POSTS } from '../data.js';
 
-// Baris contoh. Diberi label di UI.
-const ROWS = [
-  { t: '12:04:11', src: 'X', txt: 'akhirnya kesampaian nonton konsernya, pecah banget!', s: 'pos', n: 94 },
-  { t: '12:03:48', src: 'TikTok', txt: 'packaging penyok, unboxing gagal total', s: 'neg', n: 88 },
-  { t: '12:02:19', src: 'Tokopedia', txt: 'pengiriman cepat, barang sesuai deskripsi', s: 'pos', n: 91 },
-  { t: '12:01:33', src: 'Maps', txt: 'parkir susah, tapi makanannya enak', s: 'neu', n: 62 },
-  { t: '12:00:57', src: 'Instagram', txt: 'kecewa, CS susah dihubungi dari kemarin', s: 'neg', n: 85 },
-  { t: '11:59:44', src: 'X', txt: 'fitur barunya ngebantu banget buat kerjaan', s: 'pos', n: 89 },
-];
-
+// Hot posts from Warganet AI. Snapshot, labeled in the UI.
 export default function Feed() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <section className="frame feed" aria-labelledby="feed-title">
       <div className="board-head">
@@ -19,21 +11,26 @@ export default function Feed() {
         <span className="mono muted">{t.feed.note}</span>
       </div>
       <ol className="feed-list mono">
-        {ROWS.map((r, i) => (
-          <li key={r.t}>
-            <span className="t">{r.t}</span>
-            <span className="src">{r.src}</span>
+        {WARGANET_POSTS.map((p) => (
+          <li key={p.handle}>
+            <span className="t">{p.t}</span>
+            <span className="src">@{p.handle}</span>
             <span className="txt">
-              {r.txt}
-              {t.feed.gloss && <span className="gloss">{t.feed.gloss[i]}</span>}
+              {p.txt}
+              {lang === 'en' && <span className="gloss">{p.en}</span>}
             </span>
-            <span className={`score ${r.s}`}>
-              <i style={{ '--w': `${r.n}%` }} />
-              {t.feed.labels[r.s]} {r.n}
+            <span className="score">
+              <i style={{ '--w': `${Math.min(100, p.likes * 4)}%` }} />
+              {p.topic} · {p.likes} ♥ · {p.replies} ↩
             </span>
           </li>
         ))}
       </ol>
+      <div className="feed-foot">
+        <a className="mono link" href={LINKS.warganet} target="_blank" rel="noopener">
+          {t.feed.open} <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </section>
   );
 }

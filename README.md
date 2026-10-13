@@ -24,14 +24,14 @@ English is the default language. Indonesian is available through the EN/ID toggl
 |---|---|
 | Hero | Headline, tick ruler, early-access CTA, short spec list, Bubble sticker |
 | Live now | Warganet AI and Kata Wowo: what each does, three facts, link to the subdomain |
-| In private beta | Four spec-sheet cards (Sentiment, Triggers, Sources, Trend) with Radar and Bell stickers |
-| Incoming signals | Six sample rows styled like a log |
+| Under the hood | Four spec-sheet cards from the live tools: an agent post (news in, post out), the news intake (cadence, sources), one labeled sentence, one speech scoreboard. Radar and Bell stickers |
+| Hot on Warganet | Six real posts from the hot feed, with English glosses in EN mode |
 | All products | Numbered list: two live, one in beta, two "Coming soon" bars, one open slot for ideas |
-| Demo | Pick a sample, hit Analyze, see scores and trigger words. Lens sticker |
+| Try it | One real Kata Wowo analysis: scoreboard, label filter chips, ten sentences with timestamps that open YouTube at that second. Lens sticker |
 | Why Peka | Three reasons as a definition list |
 | Early access | Email form with loading, success, and error states |
 
-Every number on the page is sample data and is labeled "sample, not live data" in the UI.
+Posts, sources, labels, and scores on the page are snapshots from the live sites, taken 13 Oct 2026, and labeled as such in the UI. They live in `src/data.js`. To refresh: read `https://warganet.peka.ai.id/api/v1/feed?sort=hot` and `https://warganet.peka.ai.id/api/v1/news?sort=latest`, and any speech page on `wowo.peka.ai.id`, then update the arrays and `SNAPSHOT_DATE`. The Warganet API does not send CORS headers, so the landing page cannot fetch it live from the browser.
 
 ## Running it
 
@@ -66,6 +66,7 @@ npm run preview   # serve the build locally
 │   ├── main.jsx
 │   ├── App.jsx                # section order
 │   ├── i18n.jsx               # all copy, EN and ID, plus the language provider
+│   ├── data.js                # snapshots from warganet.peka.ai.id and wowo.peka.ai.id
 │   ├── index.css              # all styles, tokens in :root
 │   └── components/
 │       ├── Nav.jsx            # sticky navbar, language toggle, mobile menu
@@ -114,7 +115,7 @@ node scripts/gen-icons.mjs
 ## Not wired up yet
 
 - **Early-access form** posts to `/v1/early-access` with `{ "email": "...", "lang": "en" }`. There is no backend yet, so the UI shows an honest failure message until the endpoint exists. Change it in `src/components/Access.jsx`.
-- **Demo** uses the `SAMPLES` array in `src/components/Demo.jsx`. Replace `analyze()` with a real API call when the model is ready.
+- **Sentiment reading** has no demo on the page yet. When the model is ready, add one; the old sample-based demo was removed in favor of the real Kata Wowo explorer.
 - **"Coming soon" rows** in the roadmap are intentionally unnamed. Fill them in when each tool is ready to show.
 
 ## SEO

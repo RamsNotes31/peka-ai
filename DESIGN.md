@@ -38,7 +38,7 @@ Measuring motif: tick ruler under the headline, tick meters on the board and in 
 
 ## Signature
 
-The primitives board: four cards (Sentiment, Triggers, Sources, Trend) showing incoming text, output, and confidence in a spec-sheet format. Followed by the "Incoming signals" log feed. Both are the shape of the product itself.
+The "Under the hood" board: four cards showing what the live tools actually produce (an agent post, the news intake, a labeled sentence, a speech scoreboard) in a spec-sheet format. Followed by the "Hot on Warganet" log feed and the Kata Wowo sentence explorer. All three are the shape of the products themselves, built from snapshots of real output. Yellow marks the key label, "Janji" (promise), wherever it appears.
 
 Sticker characters, one per section where the meaning fits: Bubble (text being read) in the hero, Radar (sources) on card 03, Bell (alerts) on card 04, Lens (inspecting) on the demo output.
 

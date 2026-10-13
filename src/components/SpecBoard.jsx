@@ -1,8 +1,9 @@
 import { Crosshair } from './Hero.jsx';
 import { useLang } from '../i18n.jsx';
 import { Bell, Radar } from './Stickers.jsx';
+import { NEWS_SOURCES, WARGANET_POSTS, WOWO_SENTENCES, WOWO_SPEECH } from '../data.js';
 
-// Semua nilai di papan ini adalah contoh tampilan, bukan output model live. Diberi label di UI.
+// Four cards showing what the live tools actually produce. Values are snapshots, labeled in the UI.
 
 export function Meter({ value, tone }) {
   return (
@@ -16,11 +17,11 @@ function Pill({ children, tone }) {
   return <span className={`mono pill${tone ? ` ${tone}` : ''}`}>{children}</span>;
 }
 
-function Field({ label, children, right }) {
+function Field({ label, children, right, quote }) {
   return (
     <div className={`field${right ? ' right' : ''}`}>
       <span className="mono label">{label}</span>
-      <span className="value">{children}</span>
+      <span className={`value${quote ? ' quote' : ''}`}>{children}</span>
     </div>
   );
 }
@@ -34,12 +35,13 @@ function CardTop({ n, label, value }) {
   );
 }
 
-const CHANNELS = ['X', 'TikTok', 'Instagram', 'Tokopedia', 'Shopee', 'Google Maps'];
-const TREND = [62, 58, 70, 74, 41, 38, 55];
-
 export default function SpecBoard() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const b = t.board;
+  const post = WARGANET_POSTS[0];
+  const promise = WOWO_SENTENCES.find((s) => s.label === 'Janji');
+  const max = WOWO_SPEECH.labels[0][1];
+
   return (
     <section className="frame board-wrap" aria-labelledby="board-title">
       <div className="board-head">
@@ -49,27 +51,28 @@ export default function SpecBoard() {
 
       <div className="board">
         <article className="card">
-          <CardTop n="01" label={b.primitive} value={b.c1.kind} />
+          <CardTop n="01" label={b.product} value="Warganet AI" />
           <h3 className="mono">{b.c1.name}</h3>
-          <Field label={b.c1.inLabel}>"pelayanan lama banget, kecewa"{b.c1.gloss && <span className="gloss">{b.c1.gloss}</span>}</Field>
-          <div className="stack" role="img" aria-label="87 / 9 / 4">
-            <i className="neg" style={{ width: '87%' }} />
-            <i className="neu" style={{ width: '9%' }} />
-            <i className="pos" style={{ width: '4%' }} />
-          </div>
+          <Field label={b.c1.inLabel} quote>
+            {post.src}: "KDM temukan upah pekerja proyek Underpass Cimahi dipotong Rp 20 ribu per hari"
+          </Field>
+          <Field label={b.c1.outLabel} quote>
+            @{post.handle}: "{post.txt}"
+            {lang === 'en' && <span className="gloss">{post.en}</span>}
+          </Field>
           <div className="row">
             <Pill>{b.output}</Pill>
-            <span className="mono">{b.c1.out}</span>
+            <span className="mono">{post.topic} · {post.likes} {b.c1.likes} · {post.replies} {b.c1.replies}</span>
           </div>
-          <Field label={b.c1.conf}><Meter value={87} /><span className="mono">87%</span></Field>
         </article>
 
-        <article className="card">
-          <CardTop n="02" label={b.primitive} value={b.c2.kind} />
+        <article className="card has-sticker">
+          <Radar className="sticker-c3" />
+          <CardTop n="02" label={b.product} value="Warganet AI" />
           <h3 className="mono">{b.c2.name}</h3>
-          <Field label={b.c2.inLabel}>"CS fast respon, refund kelar 10 menit"{b.c2.gloss && <span className="gloss">{b.c2.gloss}</span>}</Field>
-          <ul className="keys mono">
-            <li>fast respon</li><li>kelar</li><li>refund</li>
+          <Field label={b.c2.inLabel}>{b.c2.inText}</Field>
+          <ul className="chan mono" aria-label={b.c2.sourcesLabel}>
+            {NEWS_SOURCES.map((c) => <li key={c}><i aria-hidden="true" />{c}</li>)}
           </ul>
           <div className="row">
             <Pill>{b.output}</Pill>
@@ -77,35 +80,35 @@ export default function SpecBoard() {
           </div>
         </article>
 
-        <article className="card has-sticker">
-          <Radar className="sticker-c3" />
-          <CardTop n="03" label={b.c3.kindLabel} value={String(CHANNELS.length).padStart(2, '0')} />
+        <article className="card">
+          <CardTop n="03" label={b.product} value="Kata Wowo" />
           <h3 className="mono">{b.c3.name}</h3>
-          <Field label={b.c3.inLabel}>{b.c3.inText}</Field>
-          <ul className="chan mono">
-            {CHANNELS.map((c) => <li key={c}><i aria-hidden="true" />{c}</li>)}
-          </ul>
+          <Field label={`${b.c3.inLabel} · ${promise.t}`} quote>
+            "{promise.txt}"
+            {lang === 'en' && <span className="gloss">{promise.en}</span>}
+          </Field>
           <div className="row">
-            <Pill>{b.output}</Pill>
+            <Pill tone="alert">{promise.label}</Pill>
             <span className="mono">{b.c3.out}</span>
           </div>
         </article>
 
         <article className="card has-sticker">
           <Bell className="sticker-c4" />
-          <CardTop n="04" label={b.c4.kindLabel} value={b.c4.kind} />
+          <CardTop n="04" label={b.product} value="Kata Wowo" />
           <h3 className="mono">{b.c4.name}</h3>
-          <Field label={b.c4.inLabel}>{b.c4.inText}</Field>
-          <ol className="dist mono">
-            {TREND.map((v, i) => (
-              <li key={i} className={i === 4 ? 'hit' : ''}>
-                <span>D{i + 1}</span>
-                <span className="dist-bar"><i style={{ width: `${v}%` }} /></span>
+          <Field label={b.c4.inLabel}>{WOWO_SPEECH.date} · {WOWO_SPEECH.duration} · {WOWO_SPEECH.sentences} {b.c4.sentences}</Field>
+          <ol className="dist mono" aria-label={b.c4.distLabel}>
+            {WOWO_SPEECH.labels.map(([name, n]) => (
+              <li key={name} className={name === 'Janji' ? 'hit' : ''}>
+                <span className="dist-name">{name}</span>
+                <span className="dist-bar"><i style={{ width: `${Math.round((n / max) * 100)}%` }} /></span>
+                <span className="dist-n">{n}</span>
               </li>
             ))}
           </ol>
           <div className="row">
-            <Pill tone="alert">{b.c4.alert}</Pill>
+            <Pill>{b.output}</Pill>
             <span className="mono">{b.c4.out}</span>
           </div>
         </article>

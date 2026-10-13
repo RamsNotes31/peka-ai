@@ -1,64 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
-import { Meter } from './SpecBoard.jsx';
+import { useState } from 'react';
 import { Eyebrow } from './Hero.jsx';
-import { useLang } from '../i18n.jsx';
+import { useLang, LINKS } from '../i18n.jsx';
 import { Lens } from './Stickers.jsx';
+import { WOWO_LABELS, WOWO_SENTENCES, WOWO_SPEECH } from '../data.js';
 
-// Data contoh. Teks sengaja dibiarkan Bahasa Indonesia karena itulah yang dibaca model.
-const SAMPLES = [
-  {
-    text: 'Gila sih ini CS-nya fast respon banget, masalah refund kelar dalam 10 menit. Recommended!',
-    result: { verdict: 'positif', pos: 92, neu: 6, neg: 2, keys: ['fast respon', 'kelar', 'recommended'] },
-  },
-  {
-    text: 'Paketnya udah seminggu nggak gerak, dihubungi susah. Kecewa berat sama ekspedisi ini.',
-    result: { verdict: 'negatif', pos: 3, neu: 9, neg: 88, keys: ['nggak gerak', 'susah', 'kecewa berat'] },
-  },
-  {
-    text: 'Baru coba fiturnya kemarin, sejauh ini oke. Nanti saya update lagi kalau udah seminggu pakai.',
-    result: { verdict: 'netral', pos: 34, neu: 58, neg: 8, keys: ['sejauh ini oke', 'update lagi'] },
-  },
-];
-
+// Sentence explorer for one real Kata Wowo analysis. Filter by label, jump to the second in the video.
 export default function Demo() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const d = t.demo;
-  const [selected, setSelected] = useState(0);
-  const [status, setStatus] = useState('empty'); // empty | loading | result
-  const [result, setResult] = useState(null);
-  const [filled, setFilled] = useState(false);
-  const buttons = useRef([]);
-  const timer = useRef(null);
+  const [filter, setFilter] = useState('all');
 
-  useEffect(() => () => clearTimeout(timer.current), []);
-
-  useEffect(() => {
-    if (status !== 'result') { setFilled(false); return; }
-    const id = setTimeout(() => setFilled(true), 30);
-    return () => clearTimeout(id);
-  }, [status]);
-
-  function analyze() {
-    clearTimeout(timer.current);
-    setStatus('loading');
-    timer.current = setTimeout(() => {
-      setResult(SAMPLES[selected].result);
-      setStatus('result');
-    }, 600);
-  }
-
-  function onKey(e, i) {
-    const n = SAMPLES.length;
-    let next = null;
-    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = (i + 1) % n;
-    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = (i - 1 + n) % n;
-    if (next === null) return;
-    e.preventDefault();
-    setSelected(next);
-    buttons.current[next]?.focus();
-  }
-
-  const v = (x) => (filled ? x : 0);
+  const rows = filter === 'all' ? WOWO_SENTENCES : WOWO_SENTENCES.filter((s) => s.label === filter);
+  const count = (label) => WOWO_SENTENCES.filter((s) => s.label === label).length;
 
   return (
     <section className="frame section" id="demo" aria-labelledby="demo-title">
@@ -70,66 +23,57 @@ export default function Demo() {
 
       <div className="demo">
         <div className="demo-input">
-          <p className="mono label" id="sample-label">{d.inLabel}</p>
-          <div className="samples" role="radiogroup" aria-labelledby="sample-label">
-            {SAMPLES.map((s, i) => (
-              <button
-                key={i}
-                ref={(el) => { buttons.current[i] = el; }}
-                className="sample"
-                type="button"
-                role="radio"
-                aria-checked={selected === i}
-                tabIndex={selected === i ? 0 : -1}
-                onClick={() => setSelected(i)}
-                onKeyDown={(e) => onKey(e, i)}
-              >
-                <span className="sample-txt">{s.text}</span>
-                {d.gloss && <span className="gloss">{d.gloss[i]}</span>}
-                <span className="mono muted">{d.sources[i]}</span>
+          <p className="mono label">{d.speechLabel}</p>
+          <p className="speech-title">{WOWO_SPEECH.title}</p>
+          <p className="mono muted">{WOWO_SPEECH.date} · {WOWO_SPEECH.duration} · {WOWO_SPEECH.sentences} {d.sentences}</p>
+
+          <dl className="mono spec-list score-list">
+            <div><dt>{d.score.promiseShare}</dt><dd>{WOWO_SPEECH.promiseShare}</dd></div>
+            <div><dt>{d.score.concrete}</dt><dd>{WOWO_SPEECH.concretePromises}</dd></div>
+            <div><dt>{d.score.contradictions}</dt><dd>{WOWO_SPEECH.contradictions}</dd></div>
+          </dl>
+
+          <p className="mono label" id="filter-label">{d.filterLabel}</p>
+          <div className="chips" role="group" aria-labelledby="filter-label">
+            <button type="button" className={`chip mono${filter === 'all' ? ' on' : ''}`} aria-pressed={filter === 'all'} onClick={() => setFilter('all')}>
+              {d.all} <span className="muted">{WOWO_SENTENCES.length}</span>
+            </button>
+            {WOWO_LABELS.map((l) => (
+              <button key={l} type="button" className={`chip mono${filter === l ? ' on' : ''}${l === 'Janji' ? ' key' : ''}`} aria-pressed={filter === l} onClick={() => setFilter(l)}>
+                {d.labels[l]} <span className="muted">{count(l)}</span>
               </button>
             ))}
           </div>
-          <button className="btn" type="button" onClick={analyze} disabled={status === 'loading'}>
-            {d.button}
-          </button>
+
+          <a className="btn" href={`${LINKS.wowo}/pidato/${WOWO_SPEECH.id}`} target="_blank" rel="noopener">
+            {d.openFull} <span aria-hidden="true">↗</span>
+          </a>
         </div>
 
         <div className="demo-output" aria-live="polite">
           <Lens className="sticker-demo" />
           <div className="demo-output-head">
             <span className="mono pill">{d.output}</span>
-            <span className="mono muted">{status === 'result' ? d.sample : d.waiting}</span>
+            <span className="mono muted">{rows.length} {d.of} {WOWO_SENTENCES.length}</span>
           </div>
 
-          {status === 'empty' && (
-            <div className="state state-empty">
-              <p>{d.empty}<strong>{d.emptyBtn}</strong>.</p>
-            </div>
-          )}
-
-          {status === 'loading' && (
-            <div className="state">
-              <p className="mono">{d.loading}</p>
-            </div>
-          )}
-
-          {status === 'result' && result && (
-            <div className="state state-result">
-              <p className="verdict">
-                <span className="mono muted">{d.sentiment}</span>
-                <strong className="mono">{d.verdicts[result.verdict]}</strong>
-              </p>
-              <ul className="bars">
-                <li><span className="mono">{d.bars[0]}</span><Meter value={v(result.pos)} tone="pos" /><span className="mono">{result.pos}%</span></li>
-                <li><span className="mono">{d.bars[1]}</span><Meter value={v(result.neu)} tone="neu" /><span className="mono">{result.neu}%</span></li>
-                <li><span className="mono">{d.bars[2]}</span><Meter value={v(result.neg)} /><span className="mono">{result.neg}%</span></li>
-              </ul>
-              <p className="mono label">{d.keys}</p>
-              <ul className="keys mono">
-                {result.keys.map((k) => <li key={k}>{k}</li>)}
-              </ul>
-            </div>
+          {rows.length === 0 ? (
+            <div className="state state-empty"><p>{d.empty}</p></div>
+          ) : (
+            <ol className="sentences">
+              {rows.map((s) => (
+                <li key={s.sec}>
+                  <a className="mono stamp" href={`https://www.youtube.com/watch?v=${WOWO_SPEECH.id}&t=${s.sec}s`} target="_blank" rel="noopener" aria-label={`${d.jump} ${s.t}`}>
+                    {s.t}
+                  </a>
+                  <span className="sentence">
+                    {s.txt}
+                    {lang === 'en' && <span className="gloss">{s.en}</span>}
+                  </span>
+                  <span className={`mono pill${s.label === 'Janji' ? ' alert' : ''}`}>{d.labels[s.label]}</span>
+                </li>
+              ))}
+            </ol>
           )}
 
           <p className="mono muted note">{d.note}</p>
