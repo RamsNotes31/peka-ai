@@ -8,6 +8,7 @@ export default function Nav() {
   const menuBtn = useRef(null);
 
   const links = [
+    { href: '#live', label: t.nav.live },
     { href: '#produk', label: t.nav.products },
     { href: '#demo', label: t.nav.demo },
     { href: '#kenapa', label: t.nav.why },

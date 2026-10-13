@@ -20,7 +20,7 @@ export default function Hero() {
           <a className="btn btn-lg" href="#akses-awal">
             {t.hero.cta} <span aria-hidden="true">→</span>
           </a>
-          <a className="mono link" href="#produk">{t.hero.link}</a>
+          <a className="mono link" href="#live">{t.hero.link}</a>
         </div>
       </div>
       <div className="hero-side">
@@ -30,7 +30,7 @@ export default function Hero() {
           {t.hero.spec.map(([k, v], i) => (
             <div key={k}>
               <dt>{k}</dt>
-              <dd>{i === 3 && <span className="pill-dot" aria-hidden="true" />}{v}</dd>
+              <dd>{i === 1 && <span className="pill-dot" aria-hidden="true" />}{v}</dd>
             </div>
           ))}
         </dl>

@@ -1,5 +1,6 @@
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
+import Live from './components/Live.jsx';
 import SpecBoard from './components/SpecBoard.jsx';
 import Feed from './components/Feed.jsx';
 import Products from './components/Products.jsx';
@@ -13,10 +14,11 @@ export default function App() {
   const { t } = useLang();
   return (
     <>
-      <a className="skip" href="#produk">{t.nav.skip}</a>
+      <a className="skip" href="#live">{t.nav.skip}</a>
       <Nav />
       <main id="top">
         <Hero />
+        <Live />
         <SpecBoard />
         <Feed />
         <Products />

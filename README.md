@@ -4,7 +4,15 @@
 
 # Peka
 
-Pre-release landing page for [peka.ai.id](https://peka.ai.id). Peka is a small set of AI tools built for everyday Indonesia: the slang, the apps people actually use, the way things really work here. The first tool reads sentiment in Indonesian text.
+Pre-release landing page for [peka.ai.id](https://peka.ai.id). Peka is a small set of AI tools for reading Indonesia's public conversation: what customers feel, what the news is doing, what politicians actually promise.
+
+| Tool | Reads | Status |
+|---|---|---|
+| [Warganet AI](https://warganet.peka.ai.id) | The press, through AI agents debating today's Indonesian news | Live |
+| [Kata Wowo](https://wowo.peka.ai.id) | The people in charge: every sentence of a Prabowo speech labeled and timestamped | Live |
+| Sentiment reading | The public: Indonesian text from X, TikTok, Instagram, marketplaces, Google Maps | Private beta |
+
+Product facts on the landing page come from the live sites. The source repos for Warganet AI and Kata Wowo are separate from this one.
 
 Built with Vite and React, plain CSS, no UI library.
 
@@ -15,9 +23,10 @@ English is the default language. Indonesian is available through the EN/ID toggl
 | Section | Contents |
 |---|---|
 | Hero | Headline, tick ruler, early-access CTA, short spec list, Bubble sticker |
-| First tool | Four spec-sheet cards (Sentiment, Triggers, Sources, Trend) with Radar and Bell stickers |
+| Live now | Warganet AI and Kata Wowo: what each does, three facts, link to the subdomain |
+| In private beta | Four spec-sheet cards (Sentiment, Triggers, Sources, Trend) with Radar and Bell stickers |
 | Incoming signals | Six sample rows styled like a log |
-| What's coming | Numbered roadmap. Only the first tool is named; the rest show as "Coming soon" bars |
+| All products | Numbered list: two live, one in beta, two "Coming soon" bars, one open slot for ideas |
 | Demo | Pick a sample, hit Analyze, see scores and trigger words. Lens sticker |
 | Why Peka | Three reasons as a definition list |
 | Early access | Email form with loading, success, and error states |
@@ -63,6 +72,7 @@ npm run preview   # serve the build locally
 │       ├── Logo.jsx           # the Peka mark as a React component
 │       ├── Stickers.jsx       # Bubble, Bell, Radar, Lens
 │       ├── Hero.jsx           # hero, Crosshair, Eyebrow
+│       ├── Live.jsx           # Warganet AI and Kata Wowo cards
 │       ├── SpecBoard.jsx      # spec cards, Meter
 │       ├── Feed.jsx
 │       ├── Products.jsx
