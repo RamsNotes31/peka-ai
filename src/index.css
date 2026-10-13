@@ -381,7 +381,7 @@ a { color: inherit; }
   .sentences li { grid-template-columns: 5ch 1fr; }
   .sentences .pill { grid-column: 2; justify-self: start; }
   .chip { min-height: 44px; }
-  .stamp { padding: 12px 0; margin: -10px 0; display: inline-block; }
+  .stamp { padding: 13px 0; margin: -11px 0; display: inline-block; }
   .section { padding: 56px var(--gutter); }
   .product { grid-template-columns: 1fr; gap: 10px; }
   .product-meta { grid-column: 1; }
