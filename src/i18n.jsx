@@ -20,12 +20,24 @@ export const STRINGS = {
       note: 'sample view, not live data',
       primitive: 'Primitive',
       output: 'Output',
-      c1: { name: 'Sentiment', kind: 'Sentiment', inLabel: 'Incoming text', out: 'negative · 0.87', conf: 'Confidence' },
-      c2: { name: 'Triggers', kind: 'Trigger words', inLabel: 'Incoming text', out: '3 phrases · leaning positive' },
+      c1: { name: 'Sentiment', kind: 'Sentiment', inLabel: 'Incoming text', gloss: '"service was so slow, disappointed"', out: 'negative · 0.87', conf: 'Confidence' },
+      c2: { name: 'Triggers', kind: 'Trigger words', inLabel: 'Incoming text', gloss: '"support replied fast, refund done in 10 min"', out: '3 phrases · leaning positive' },
       c3: { name: 'Sources', kindLabel: 'Channels', inLabel: 'Watching', inText: 'One stream, every channel', out: '1 JSON schema' },
       c4: { name: 'Trend', kindLabel: 'Range', kind: '7 days', inLabel: 'Daily score', inText: 'Average sentiment per day', alert: 'Alert', out: 'Day 5 fell 33 points' },
     },
-    feed: { title: 'Incoming signals', note: 'sample, not live data', labels: { pos: 'positive', neu: 'neutral', neg: 'negative' } },
+    feed: {
+      title: 'Incoming signals',
+      note: 'sample, not live data',
+      labels: { pos: 'positive', neu: 'neutral', neg: 'negative' },
+      gloss: [
+        'finally got to see them live, it went off!',
+        'box came in dented, unboxing was a total fail',
+        'fast shipping, item as described',
+        'parking is a pain, but the food is great',
+        "disappointed, can't reach support since yesterday",
+        'the new feature really helps with work',
+      ],
+    },
     products: {
       eyebrow: "What's coming",
       h2: 'A few more tools are in the works.',
@@ -45,8 +57,14 @@ export const STRINGS = {
       eyebrow: 'Try it',
       h2: 'See how it reads slang.',
       lead: 'Pick a sample, hit analyze. Watch messy Indonesian (abbreviations, mixed language, all of it) turn into a score.',
-      inLabel: 'Incoming text',
+      inLabel: 'Incoming text (Indonesian, as the model sees it)',
       sources: ['Marketplace review', 'X (Twitter)', 'TikTok comment'],
+      gloss: [
+        'Wow, their support replied crazy fast, refund sorted in 10 minutes. Recommended!',
+        "Package hasn't moved in a week, can't reach anyone. Really let down by this courier.",
+        "Tried the feature yesterday, fine so far. I'll update after a week of use.",
+      ],
+      glossLabel: 'In English',
       button: 'Analyze',
       output: 'Output',
       waiting: 'waiting',
@@ -101,12 +119,12 @@ export const STRINGS = {
       note: 'contoh tampilan, bukan data live',
       primitive: 'Primitif',
       output: 'Output',
-      c1: { name: 'Sentimen', kind: 'Sentimen', inLabel: 'Teks masuk', out: 'negatif · 0.87', conf: 'Keyakinan' },
-      c2: { name: 'Pemicu', kind: 'Kata pemicu', inLabel: 'Teks masuk', out: '3 frasa · arah positif' },
+      c1: { name: 'Sentimen', kind: 'Sentimen', inLabel: 'Teks masuk', gloss: null, out: 'negatif · 0.87', conf: 'Keyakinan' },
+      c2: { name: 'Pemicu', kind: 'Kata pemicu', inLabel: 'Teks masuk', gloss: null, out: '3 frasa · arah positif' },
       c3: { name: 'Sumber', kindLabel: 'Kanal', inLabel: 'Dipantau', inText: 'Satu stream, semua kanal', out: '1 skema JSON' },
       c4: { name: 'Tren', kindLabel: 'Rentang', kind: '7 hari', inLabel: 'Skor harian', inText: 'Rata-rata sentimen per hari', alert: 'Alert', out: 'H5 turun 33 poin' },
     },
-    feed: { title: 'Sinyal masuk', note: 'contoh, bukan data live', labels: { pos: 'positif', neu: 'netral', neg: 'negatif' } },
+    feed: { title: 'Sinyal masuk', note: 'contoh, bukan data live', labels: { pos: 'positif', neu: 'netral', neg: 'negatif' }, gloss: null },
     products: {
       eyebrow: 'Yang akan datang',
       h2: 'Beberapa alat lagi sedang dikerjakan.',
@@ -128,6 +146,8 @@ export const STRINGS = {
       lead: 'Pilih satu contoh, tekan analisis. Teks Indonesia yang berantakan (singkatan, campur bahasa, semuanya) berubah jadi skor.',
       inLabel: 'Teks masuk',
       sources: ['Ulasan marketplace', 'X (Twitter)', 'Komentar TikTok'],
+      gloss: null,
+      glossLabel: '',
       button: 'Analisis',
       output: 'Output',
       waiting: 'menunggu',
@@ -168,10 +188,10 @@ export const STRINGS = {
 
 const LangContext = createContext({ lang: 'en', setLang: () => {}, t: STRINGS.en });
 
+// English is the default for everyone. Indonesian only when the visitor picks it.
 function readInitial() {
   const saved = localStorage.getItem(KEY);
-  if (saved === 'en' || saved === 'id') return saved;
-  return navigator.language?.toLowerCase().startsWith('id') ? 'id' : 'en';
+  return saved === 'id' ? 'id' : 'en';
 }
 
 export function LangProvider({ children }) {

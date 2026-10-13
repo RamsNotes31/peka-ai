@@ -85,6 +85,7 @@ export default function Demo() {
                 onKeyDown={(e) => onKey(e, i)}
               >
                 <span className="sample-txt">{s.text}</span>
+                {d.gloss && <span className="gloss">{d.gloss[i]}</span>}
                 <span className="mono muted">{d.sources[i]}</span>
               </button>
             ))}

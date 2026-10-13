@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Eyebrow } from './Hero.jsx';
 import { useLang } from '../i18n.jsx';
 
-const ENDPOINT = '/v1/akses-awal';
+const ENDPOINT = '/v1/early-access';
 
 export default function Access() {
   const { t, lang } = useLang();

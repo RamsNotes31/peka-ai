@@ -51,7 +51,7 @@ export default function SpecBoard() {
         <article className="card">
           <CardTop n="01" label={b.primitive} value={b.c1.kind} />
           <h3 className="mono">{b.c1.name}</h3>
-          <Field label={b.c1.inLabel}>"pelayanan lama banget, kecewa"</Field>
+          <Field label={b.c1.inLabel}>"pelayanan lama banget, kecewa"{b.c1.gloss && <span className="gloss">{b.c1.gloss}</span>}</Field>
           <div className="stack" role="img" aria-label="87 / 9 / 4">
             <i className="neg" style={{ width: '87%' }} />
             <i className="neu" style={{ width: '9%' }} />
@@ -67,7 +67,7 @@ export default function SpecBoard() {
         <article className="card">
           <CardTop n="02" label={b.primitive} value={b.c2.kind} />
           <h3 className="mono">{b.c2.name}</h3>
-          <Field label={b.c2.inLabel}>"CS fast respon, refund kelar 10 menit"</Field>
+          <Field label={b.c2.inLabel}>"CS fast respon, refund kelar 10 menit"{b.c2.gloss && <span className="gloss">{b.c2.gloss}</span>}</Field>
           <ul className="keys mono">
             <li>fast respon</li><li>kelar</li><li>refund</li>
           </ul>

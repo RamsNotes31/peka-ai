@@ -1,50 +1,54 @@
-# Peka, arah desain
+# Peka, design direction
 
-Dial: ENERGY 2 / RHYTHM 2 / MOTION 1
+Dials: ENERGY 2 / RHYTHM 2 / MOTION 1
 
-## Identitas
+## Identity
 
-- Produk: Peka, kumpulan SaaS AI yang dibangun untuk konteks Indonesia. Produk pertama Peka Sentimen, lalu Monitor, Direktori, API, dan produk berikutnya yang ditentukan dari masukan pendaftar. Status: pra-rilis.
-- Audiens: tim brand, social media manager, developer, dan pengguna umum di Indonesia.
-- Referensi dari pemilik: vercel.com (frame bersih, hairline), dahono.com (headline besar, nada tegas), dan gambar lembar spesifikasi (label mono uppercase, crosshair, meter bertik, stiker holografik). Kuning adalah warna Peka.
+- Product: Peka, a small set of AI tools built for everyday Indonesia. First tool reads sentiment in Indonesian text; more follow, unnamed until ready. Status: pre-release.
+- Audience: brand teams, social media managers, developers, and everyday users in Indonesia. English first, Indonesian as an option.
+- References from the owner: vercel.com (clean frame, hairlines), dahono.com (big headline, firm tone), and a spec-sheet style image (uppercase mono labels, crosshairs, tick meters, holographic stickers). Yellow is Peka's color.
 
-## Palet
+## Palette
 
-| Token | Nilai | Alasan |
+| Token | Value | Why |
 |---|---|---|
-| bg | #f3f3f0 | Kertas spesifikasi, bukan putih layar. Mengikuti referensi gambar |
-| fg | #111111 | Tinta |
-| muted | #5c5c5a | Teks sekunder, kontras 6.6:1 di atas bg |
+| bg | #f3f3f0 | Spec-sheet paper, not screen white. From the reference image |
+| fg | #111111 | Ink |
+| muted | #5c5c5a | Secondary text, 6.6:1 on bg |
 | line | #d6d6d2 | Hairline grid |
-| accent | #ffd60a | Kuning Peka, hanya sebagai isian: highlight kata "peka", logo placeholder, meter positif, garis pilihan aktif. Tidak pernah dipakai sebagai warna teks |
+| accent | #ffd60a | Peka yellow, fill only: headline highlight, logo, positive meter, alert pill, active sample edge. Never as text color |
 
-Stiker holografik adalah satu elemen dekoratif, satu per halaman, meniru referensi. Bukan glow, bukan gradien latar.
+Holographic stickers are the only decorative element. No glow, no background gradients.
 
-Motif pengukuran: ruler bertik di bawah headline, meter bertik di papan dan demo, dot-mark 3x3 di sudut hero dan papan (tanda registrasi lembar cetak). Semuanya satu bahasa: Peka mengukur.
+Measuring motif: tick ruler under the headline, tick meters on the board and in the demo, 3x3 dot marks in the corners of the hero and board (print registration marks). One language: Peka measures.
 
-## Tipografi
+## Type
 
-- Display dan body: Inter Tight. Rapat, netral, memberi headline besar seperti referensi tanpa bersaing dengan label mono.
-- Utility: Space Mono uppercase untuk label spesifikasi, feed, dan output. Monospace di sini membawa makna: ini output mesin dan bahasa lembar spesifikasi, bukan hiasan.
+- Display and body: Inter Tight. Tight and neutral, gives a big headline like the reference without competing with the mono labels.
+- Utility: Space Mono uppercase for spec labels, feed rows, and output. Monospace here carries meaning: machine output and spec-sheet language, not decoration.
+- English translations under Indonesian sample text are sentence case in the body face, muted, so they read as a gloss and not as data.
 
-## Tata letak
+## Layout
 
-- Frame dua garis vertikal, section dipisah garis horizontal, tanpa ganti warna latar.
-- Radius 2px pada tombol dan input, 999px hanya pada pill label. Dua nilai saja.
-- Tanpa shadow kecuali drop-shadow 1px pada stiker supaya terbaca sebagai stiker tempel.
+- Two vertical rules frame the content, sections are separated by horizontal rules, no background color changes.
+- Radius 2px on buttons and inputs, 999px only on label pills. Two values.
+- No shadows except a 1px drop shadow on stickers so they read as stuck-on.
+- Cards that hold a sticker give it a 108px title band; stickers never overlap text.
 
 ## Signature
 
-Papan primitif: empat kartu (Sentimen, Pemicu, Sumber, Tren) yang menampilkan teks masuk, output, dan keyakinan dalam format lembar spesifikasi. Diikuti feed "Sinyal masuk" bergaya log. Keduanya adalah bentuk produk itu sendiri.
+The primitives board: four cards (Sentiment, Triggers, Sources, Trend) showing incoming text, output, and confidence in a spec-sheet format. Followed by the "Incoming signals" log feed. Both are the shape of the product itself.
 
-## Tema
+Sticker characters, one per section where the meaning fits: Bubble (text being read) in the hero, Radar (sources) on card 03, Bell (alerts) on card 04, Lens (inspecting) on the demo output.
 
-Terang saja. Estetika kertas spesifikasi adalah identitasnya, versi gelap akan menghilangkan itu.
+## Theme
+
+Light only. The spec-sheet paper is the identity; a dark version would lose it.
 
 ## Motion
 
-Hover, transisi lebar meter 300ms saat hasil demo muncul, fade 150ms pada panel hasil. Tanpa loop, tanpa scroll-reveal. `prefers-reduced-motion` dihormati.
+Hover, a 300ms meter width transition when a demo result appears, a 150ms fade on the result panel. No loops, no scroll reveal. `prefers-reduced-motion` is respected.
 
 ## Copy
 
-Bahasa Indonesia, kalimat pendek, tanpa em dash, tanpa buzzword. Semua angka di halaman adalah contoh dan diberi label contoh.
+Plain, friendly, short sentences. No em dashes, no buzzwords, no invented numbers. Every number on the page is a sample and labeled as such. Product names other than the first are hidden behind "Coming soon" until they are ready to try.

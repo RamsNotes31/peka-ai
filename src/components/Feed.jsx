@@ -19,11 +19,14 @@ export default function Feed() {
         <span className="mono muted">{t.feed.note}</span>
       </div>
       <ol className="feed-list mono">
-        {ROWS.map((r) => (
+        {ROWS.map((r, i) => (
           <li key={r.t}>
             <span className="t">{r.t}</span>
             <span className="src">{r.src}</span>
-            <span className="txt">{r.txt}</span>
+            <span className="txt">
+              {r.txt}
+              {t.feed.gloss && <span className="gloss">{t.feed.gloss[i]}</span>}
+            </span>
             <span className={`score ${r.s}`}>
               <i style={{ '--w': `${r.n}%` }} />
               {t.feed.labels[r.s]} {r.n}

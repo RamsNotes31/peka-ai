@@ -4,129 +4,127 @@
 
 # Peka
 
-Landing page pra-rilis untuk [peka.ai.id](https://peka.ai.id). Peka adalah kumpulan produk SaaS AI yang dibangun untuk konteks Indonesia: bahasa sehari-hari, platform yang benar-benar dipakai, dan kebiasaan lokal. Produk pertama adalah analisis sentimen Bahasa Indonesia.
+Pre-release landing page for [peka.ai.id](https://peka.ai.id). Peka is a small set of AI tools built for everyday Indonesia: the slang, the apps people actually use, the way things really work here. The first tool reads sentiment in Indonesian text.
 
-Dibangun dengan Vite dan React, CSS murni, tanpa library UI.
+Built with Vite and React, plain CSS, no UI library.
 
-Bahasa utama English, Bahasa Indonesia sebagai opsi (toggle EN/ID di navbar, tersimpan di localStorage, mengikuti bahasa browser saat pertama kali). Semua teks ada di `src/i18n.jsx`, satu objek per bahasa. Ubah copy di sana, bukan di komponen.
+English is the default language. Indonesian is available through the EN/ID toggle in the navbar (saved in localStorage). All copy lives in `src/i18n.jsx`, one object per language. Edit text there, not in components. Sample texts in the feed and demo stay in Indonesian because that is what the model reads; in English mode each one shows a translation underneath.
 
-## Isi halaman
+## What's on the page
 
-| Section | Isi |
+| Section | Contents |
 |---|---|
-| Hero | Headline, ruler bertik, CTA akses awal, spesifikasi singkat |
-| Produk pertama | Papan empat kartu (Sentimen, Pemicu, Sumber, Tren) bergaya lembar spesifikasi |
-| Sinyal masuk | Feed contoh bergaya log, enam baris |
-| Produk | Roadmap bernomor: Peka Sentimen, Monitor, Direktori, API, dan slot produk berikutnya |
-| Demo | Pilih teks contoh, tekan analisis, lihat skor dan kata pemicu |
-| Kenapa Peka | Tiga alasan dalam bentuk daftar definisi |
-| Akses awal | Form email dengan state loading, sukses, dan gagal |
+| Hero | Headline, tick ruler, early-access CTA, short spec list, Bubble sticker |
+| First tool | Four spec-sheet cards (Sentiment, Triggers, Sources, Trend) with Radar and Bell stickers |
+| Incoming signals | Six sample rows styled like a log |
+| What's coming | Numbered roadmap. Only the first tool is named; the rest show as "Coming soon" bars |
+| Demo | Pick a sample, hit Analyze, see scores and trigger words. Lens sticker |
+| Why Peka | Three reasons as a definition list |
+| Early access | Email form with loading, success, and error states |
 
-Semua angka di halaman adalah contoh tampilan dan diberi label "contoh, bukan data live" di UI.
+Every number on the page is sample data and is labeled "sample, not live data" in the UI.
 
-## Menjalankan
+## Running it
 
-Butuh Node.js 18 atau lebih baru.
+Needs Node.js 18 or newer.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Buka http://localhost:5173.
-
-Perintah lain:
+Open http://localhost:5173.
 
 ```bash
-npm run build     # build produksi ke dist/
-npm run preview   # jalankan hasil build secara lokal
+npm run build     # production build to dist/
+npm run preview   # serve the build locally
 ```
 
-## Struktur
+## Structure
 
 ```
 .
-├── index.html                 # entry Vite, font, favicon, meta
+├── index.html                 # Vite entry, fonts, icons, meta, JSON-LD, noscript fallback
 ├── public/
-│   ├── favicon.svg            # tanda Peka
-│   ├── logo.svg               # tanda + wordmark, latar terang
-│   └── logo-dark.svg          # tanda + wordmark, latar gelap
+│   ├── favicon.svg, favicon.ico, favicon-48.png, favicon-96.png
+│   ├── apple-touch-icon.png, icon-192.png, icon-512.png
+│   ├── og.png                 # Open Graph image, 1200x630
+│   ├── logo.svg, logo-dark.svg
+│   ├── manifest.webmanifest, robots.txt, sitemap.xml
+├── scripts/
+│   └── gen-icons.mjs          # renders the mark to PNG/ICO/OG, no dependencies
 ├── src/
 │   ├── main.jsx
-│   ├── App.jsx                # urutan section
-│   ├── index.css              # semua style, token di :root
+│   ├── App.jsx                # section order
+│   ├── i18n.jsx               # all copy, EN and ID, plus the language provider
+│   ├── index.css              # all styles, tokens in :root
 │   └── components/
-│       ├── Nav.jsx            # navbar sticky, menu mobile
-│       ├── Logo.jsx           # komponen tanda Peka
+│       ├── Nav.jsx            # sticky navbar, language toggle, mobile menu
+│       ├── Logo.jsx           # the Peka mark as a React component
+│       ├── Stickers.jsx       # Bubble, Bell, Radar, Lens
 │       ├── Hero.jsx           # hero, Crosshair, Eyebrow
-│       ├── SpecBoard.jsx      # papan primitif, Meter, stiker
-│       ├── Feed.jsx           # feed sinyal contoh
-│       ├── Products.jsx       # roadmap produk
-│       ├── Demo.jsx           # demo interaktif
-│       ├── Why.jsx            # kenapa Peka
-│       ├── Access.jsx         # form akses awal
+│       ├── SpecBoard.jsx      # spec cards, Meter
+│       ├── Feed.jsx
+│       ├── Products.jsx
+│       ├── Demo.jsx
+│       ├── Why.jsx
+│       ├── Access.jsx
 │       └── Footer.jsx
-├── DESIGN.md                  # arah desain dan alasan tiap keputusan
+├── DESIGN.md                  # design direction and the reason behind each choice
 └── vite.config.js
 ```
 
-## Desain
+## Design
 
-Arah lengkap ada di [DESIGN.md](DESIGN.md). Ringkasnya:
+Full notes in [DESIGN.md](DESIGN.md). In short:
 
-- Estetika lembar spesifikasi di atas frame bergaya Vercel: latar kertas `#f3f3f0`, hairline `#d6d6d2`, dua garis vertikal pembatas konten.
-- Tipografi: Inter Tight untuk headline dan body, Space Mono uppercase untuk label, feed, dan output.
-- Kuning Peka `#ffd60a` hanya sebagai isian (highlight, logo, meter positif, pill alert). Tidak pernah sebagai warna teks.
-- Motif pengukuran: ruler bertik, meter bertik, crosshair, dot-mark sudut. Logo memakai crosshair yang sama.
-- Empat karakter stiker holografik di `src/components/Stickers.jsx`, masing-masing di bagian yang maknanya cocok: Bubble (teks yang dibaca) di hero, Radar (sumber) di kartu 03, Bell (alert) di kartu 04, Lens (memeriksa) di panel output demo.
-- Nama produk selain yang pertama disensor sebagai bar hitam "Coming soon" sampai siap dicoba.
-- Tema terang saja. Motion hanya hover dan transisi state.
+- Spec-sheet look on a Vercel-style frame: paper background `#f3f3f0`, hairlines `#d6d6d2`, two vertical rules bounding the content.
+- Type: Inter Tight for headlines and body, Space Mono uppercase for labels, feed, and output.
+- Peka yellow `#ffd60a` is only ever a fill (highlight, logo, positive meter, alert pill). Never text.
+- Measuring motif: tick ruler, tick meters, crosshair, corner dot marks. The logo uses the same crosshair.
+- Four holographic sticker characters, one per section where the meaning fits: Bubble (text being read) in the hero, Radar (sources) on card 03, Bell (alerts) on card 04, Lens (inspecting) on the demo output.
+- Light theme only. Motion is hover and state transitions only.
 
-Token warna dan font ada di `:root` pada `src/index.css`. Ganti di sana, bukan per komponen.
+Color and font tokens are in `:root` in `src/index.css`.
 
 ## Logo
 
-Tanda Peka adalah kotak kuning dengan crosshair: lingkaran, empat garis, titik di tengah. Artinya memperhatikan dan mengukur, sama dengan motif di seluruh halaman.
+The mark is a yellow square with a crosshair: a ring, four ticks, a dot. It means paying attention and measuring, the same motif used across the page.
 
-- `public/favicon.svg`: tanda saja, 32x32.
-- `public/logo.svg`: tanda dan wordmark untuk latar terang.
-- `public/logo-dark.svg`: tanda dan wordmark untuk latar gelap.
-- `src/components/Logo.jsx`: komponen React, prop `size` dalam piksel.
+- `public/favicon.svg`: mark only, 32x32.
+- `public/logo.svg`, `public/logo-dark.svg`: mark plus wordmark for light and dark backgrounds.
+- `src/components/Logo.jsx`: React component, `size` prop in pixels.
 
-Wordmark memakai Inter Tight 600. Kalau font tidak tersedia, SVG jatuh ke Inter atau Arial.
-
-Ikon raster (`favicon.ico`, `favicon-48.png`, `favicon-96.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `og.png`) dibuat oleh `scripts/gen-icons.mjs` tanpa dependensi. Jalankan ulang kalau tanda berubah:
+Raster icons are generated by `scripts/gen-icons.mjs`. Re-run it if the mark changes:
 
 ```bash
 node scripts/gen-icons.mjs
 ```
 
+## Not wired up yet
+
+- **Early-access form** posts to `/v1/early-access` with `{ "email": "...", "lang": "en" }`. There is no backend yet, so the UI shows an honest failure message until the endpoint exists. Change it in `src/components/Access.jsx`.
+- **Demo** uses the `SAMPLES` array in `src/components/Demo.jsx`. Replace `analyze()` with a real API call when the model is ready.
+- **"Coming soon" rows** in the roadmap are intentionally unnamed. Fill them in when each tool is ready to show.
+
 ## SEO
 
-- `public/robots.txt` mengizinkan semua crawler dan menunjuk ke `sitemap.xml`.
-- `public/sitemap.xml` berisi satu URL: `https://peka.ai.id/`.
-- `index.html` memuat canonical, meta robots, Open Graph, Twitter card, JSON-LD (Organization, WebSite), dan fallback `noscript` berisi ringkasan konten.
-- Setelah deploy, daftarkan domain di [Google Search Console](https://search.google.com/search-console), kirim `https://peka.ai.id/sitemap.xml`, lalu minta pengindeksan untuk halaman utama. Ini langkah manual, tidak bisa dilakukan dari kode.
-
-## Yang belum tersambung
-
-- **Form akses awal** mengirim `POST /v1/akses-awal` dengan body `{ "email": "..." }`. Belum ada backend. UI menampilkan pesan gagal yang jujur sampai endpoint tersedia. Endpoint diatur di `src/components/Access.jsx`.
-- **Demo analisis** memakai data contoh di `SAMPLES` pada `src/components/Demo.jsx`. Ganti fungsi `analyze` dengan panggilan API saat model siap.
-- **Baris "Produk berikutnya"** di roadmap sengaja kosong. Isi saat produk kelima sudah ditentukan.
+- `robots.txt` allows all crawlers and points to `sitemap.xml`.
+- `sitemap.xml` lists one URL: `https://peka.ai.id/`.
+- `index.html` carries canonical, meta robots, Open Graph, Twitter card, JSON-LD (Organization, WebSite), and a `noscript` summary for crawlers without JavaScript.
+- After deploying, add the domain in [Google Search Console](https://search.google.com/search-console), submit `https://peka.ai.id/sitemap.xml`, and request indexing for the home page. That step is manual.
 
 ## Deploy
 
-Output `npm run build` adalah situs statis di `dist/`. Bisa di-deploy ke Vercel, Netlify, Cloudflare Pages, atau server statis apa pun.
+`npm run build` produces a static site in `dist/`. Deploy to Vercel, Netlify, Cloudflare Pages, or any static host. On Vercel the framework is detected as Vite, no extra config.
 
-Untuk Vercel: import repo, framework terdeteksi sebagai Vite, tidak perlu konfigurasi tambahan.
+## Accessibility
 
-## Aksesibilitas
+- Every control is reachable by keyboard with a visible focus ring.
+- The mobile menu closes on Escape. Demo samples are a radiogroup with arrow-key navigation.
+- Secondary text `#5c5c5a` on `#f3f3f0` has a 6.6:1 contrast ratio. All tap targets are at least 44px on touch screens.
+- `prefers-reduced-motion` turns off all transitions.
 
-- Semua kontrol bisa dijangkau keyboard. Fokus terlihat (outline 2px).
-- Menu mobile tutup dengan Escape. Pilihan contoh di demo adalah radiogroup dengan navigasi panah.
-- Kontras teks sekunder `#5c5c5a` di atas `#f3f3f0` adalah 6.6:1.
-- `prefers-reduced-motion` mematikan semua transisi.
+## License
 
-## Lisensi
-
-Belum ditentukan.
+Not decided yet.
