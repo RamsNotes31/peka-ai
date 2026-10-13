@@ -250,7 +250,7 @@ a { color: inherit; }
 .bars li { display: grid; grid-template-columns: 8ch 1fr 5ch; gap: 12px; align-items: center; }
 .bars .mono:last-child { text-align: right; }
 .bars + .label { margin-bottom: 10px; }
-.note { margin-top: 28px; text-transform: none; }
+.note { margin-top: 28px; text-transform: none; padding-right: 120px; }
 
 /* Why: heading left, definitions right. */
 .why { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; }
