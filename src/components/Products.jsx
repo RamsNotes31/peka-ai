@@ -1,66 +1,46 @@
 import { Eyebrow } from './Hero.jsx';
+import { useLang } from '../i18n.jsx';
 
-// Nomor urut menyatakan urutan rilis yang direncanakan.
-const PRODUCTS = [
-  {
-    name: 'Peka Sentimen',
-    tag: 'Bahasa · Media sosial',
-    body: 'Skor sentimen, tren harian, dan kata pemicu untuk teks Bahasa Indonesia dari X, TikTok, Instagram, ulasan marketplace, dan Google Maps.',
-    demo: true,
-  },
-  {
-    name: 'Peka Monitor',
-    tag: 'Brand · Isu publik',
-    body: 'Pantau brand, produk, atau isu terus-menerus. Alert saat sentimen anjlok atau percakapan melonjak tidak wajar.',
-  },
-  {
-    name: 'Peka Direktori',
-    tag: 'Kurasi · Review',
-    body: 'Direktori SaaS AI yang diuji langsung untuk pengguna Indonesia. Ringkasan jujur: apa yang bagus, apa yang tidak, berapa harganya dalam rupiah.',
-  },
-  {
-    name: 'Peka API',
-    tag: 'Developer · SDK',
-    body: 'Semua kemampuan Peka lewat satu endpoint. Kirim teks, terima skor, entitas, dan ringkasan. SDK untuk JS dan Python.',
-  },
-];
-
+// Nama produk selain yang pertama disensor sampai siap dicoba. Nomor = urutan rilis yang direncanakan.
 export default function Products() {
+  const { t } = useLang();
+  const p = t.products;
   return (
     <section className="frame section products" id="produk" aria-labelledby="produk-title">
       <div className="section-head">
-        <Eyebrow>Produk</Eyebrow>
-        <h2 id="produk-title">Satu platform, banyak produk. Dirilis satu per satu.</h2>
-        <p className="muted">
-          Semua dibangun untuk konteks Indonesia dan masih dalam pengerjaan. Pendaftar akses awal
-          mencoba tiap produk begitu rilis, tanpa antre.
-        </p>
+        <Eyebrow>{p.eyebrow}</Eyebrow>
+        <h2 id="produk-title">{p.h2}</h2>
+        <p className="muted">{p.lead}</p>
       </div>
 
       <ol className="product-list">
-        {PRODUCTS.map((p, i) => (
-          <li className="product" key={p.name}>
+        {p.rows.map((r, i) => (
+          <li className="product" key={i}>
             <span className="mono product-n">{String(i + 1).padStart(2, '0')}</span>
             <div className="product-body">
-              <h3>{p.name}</h3>
-              <p>{p.body}</p>
-              {p.demo && <a className="mono link" href="#demo">Coba demonya</a>}
+              {r.open ? (
+                <h3>{r.name}</h3>
+              ) : (
+                <h3 className="redacted"><span className="mono">{p.comingSoon}</span></h3>
+              )}
+              <p>{r.body}</p>
+              {r.demo && <a className="mono link" href="#demo">{p.tryDemo}</a>}
             </div>
             <div className="product-meta mono">
-              <span className="muted">{p.tag}</span>
-              <span className="status">Segera</span>
+              <span className="muted">{r.tag}</span>
+              <span className="status">{r.open ? p.beta : p.comingSoon}</span>
             </div>
           </li>
         ))}
         <li className="product product-next">
-          <span className="mono product-n">{String(PRODUCTS.length + 1).padStart(2, '0')}</span>
+          <span className="mono product-n">{String(p.rows.length + 1).padStart(2, '0')}</span>
           <div className="product-body">
-            <h3>Produk berikutnya</h3>
-            <p>Ditentukan dari masalah yang paling sering dikirim pendaftar akses awal. Belum ada nama, belum ada janji.</p>
+            <h3>{p.next.name}</h3>
+            <p>{p.next.body}</p>
           </div>
           <div className="product-meta mono">
-            <span className="muted">Terbuka</span>
-            <span className="status">Direncanakan</span>
+            <span className="muted">{p.next.tag}</span>
+            <span className="status">{p.next.status}</span>
           </div>
         </li>
       </ol>

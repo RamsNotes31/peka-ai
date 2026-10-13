@@ -7,11 +7,13 @@ import Demo from './components/Demo.jsx';
 import Why from './components/Why.jsx';
 import Access from './components/Access.jsx';
 import Footer from './components/Footer.jsx';
+import { useLang } from './i18n.jsx';
 
 export default function App() {
+  const { t } = useLang();
   return (
     <>
-      <a className="skip" href="#produk">Lewati ke konten</a>
+      <a className="skip" href="#produk">{t.nav.skip}</a>
       <Nav />
       <main id="top">
         <Hero />

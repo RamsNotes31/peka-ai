@@ -1,18 +1,20 @@
-const LINKS = [
-  { href: '#produk', label: 'Produk' },
-  { href: '#demo', label: 'Demo' },
-  { href: '#kenapa', label: 'Kenapa Peka' },
-  { href: '#akses-awal', label: 'Akses awal' },
-];
+import { useLang } from '../i18n.jsx';
 
 export default function Footer() {
+  const { t } = useLang();
+  const links = [
+    { href: '#produk', label: t.nav.products },
+    { href: '#demo', label: t.nav.demo },
+    { href: '#kenapa', label: t.nav.why },
+    { href: '#akses-awal', label: t.nav.access },
+  ];
   return (
     <footer className="frame footer mono">
       <span>peka.ai.id</span>
-      <nav aria-label="Tautan footer" className="footer-links">
-        {LINKS.map((l) => <a key={l.href} href={l.href}>{l.label}</a>)}
+      <nav aria-label="Footer" className="footer-links">
+        {links.map((l) => <a key={l.href} href={l.href}>{l.label}</a>)}
       </nav>
-      <span className="muted">Dibuat di Indonesia · {new Date().getFullYear()}</span>
+      <span className="muted">{t.footer.made} · {new Date().getFullYear()}</span>
     </footer>
   );
 }

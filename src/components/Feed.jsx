@@ -1,3 +1,5 @@
+import { useLang } from '../i18n.jsx';
+
 // Baris contoh. Diberi label di UI.
 const ROWS = [
   { t: '12:04:11', src: 'X', txt: 'akhirnya kesampaian nonton konsernya, pecah banget!', s: 'pos', n: 94 },
@@ -8,14 +10,13 @@ const ROWS = [
   { t: '11:59:44', src: 'X', txt: 'fitur barunya ngebantu banget buat kerjaan', s: 'pos', n: 89 },
 ];
 
-const LABEL = { pos: 'positif', neu: 'netral', neg: 'negatif' };
-
 export default function Feed() {
+  const { t } = useLang();
   return (
     <section className="frame feed" aria-labelledby="feed-title">
       <div className="board-head">
-        <h2 id="feed-title" className="mono">Sinyal masuk</h2>
-        <span className="mono muted">contoh, bukan data live</span>
+        <h2 id="feed-title" className="mono">{t.feed.title}</h2>
+        <span className="mono muted">{t.feed.note}</span>
       </div>
       <ol className="feed-list mono">
         {ROWS.map((r) => (
@@ -25,7 +26,7 @@ export default function Feed() {
             <span className="txt">{r.txt}</span>
             <span className={`score ${r.s}`}>
               <i style={{ '--w': `${r.n}%` }} />
-              {LABEL[r.s]} {r.n}
+              {t.feed.labels[r.s]} {r.n}
             </span>
           </li>
         ))}

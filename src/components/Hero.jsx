@@ -1,35 +1,38 @@
+import { useLang } from '../i18n.jsx';
+import { Bubble } from './Stickers.jsx';
+
 export default function Hero() {
+  const { t } = useLang();
   return (
     <section className="frame hero">
       <div className="hero-main">
         <span className="dotmark tl" aria-hidden="true" />
         <p className="mono eyebrow">
-          <span>peka.ai.id / pra-rilis</span>
+          <span>{t.hero.eyebrow}</span>
           <Crosshair />
         </p>
         <h1>
-          Produk AI untuk <mark>Indonesia,</mark> bukan hasil terjemahan.
+          {t.hero.h1a}<mark>{t.hero.h1mark}</mark>{t.hero.h1b}
         </h1>
         {/* Ruler bertik: motif pengukuran, sama dengan meter di papan primitif. */}
         <div className="ruler" aria-hidden="true" />
         <div className="cta-row">
           <a className="btn btn-lg" href="#akses-awal">
-            Minta akses awal <span aria-hidden="true">→</span>
+            {t.hero.cta} <span aria-hidden="true">→</span>
           </a>
-          <a className="mono link" href="#produk">Lihat semua produk</a>
+          <a className="mono link" href="#produk">{t.hero.link}</a>
         </div>
       </div>
       <div className="hero-side">
-        <p className="lead">
-          Peka adalah kumpulan SaaS AI yang dibangun untuk konteks Indonesia: bahasa sehari-hari,
-          platform yang benar-benar dipakai, dan kebiasaan lokal. Dimulai dari analisis sentimen,
-          berlanjut ke produk berikutnya.
-        </p>
+        <Bubble className="sticker-hero" />
+        <p className="lead">{t.hero.lead}</p>
         <dl className="mono spec-list">
-          <div><dt>Fokus</dt><dd>Konteks Indonesia</dd></div>
-          <div><dt>Produk pertama</dt><dd>Peka Sentimen</dd></div>
-          <div><dt>Integrasi</dt><dd>Satu akun, satu API</dd></div>
-          <div><dt>Status</dt><dd><span className="pill-dot" aria-hidden="true" />Beta tertutup</dd></div>
+          {t.hero.spec.map(([k, v], i) => (
+            <div key={k}>
+              <dt>{k}</dt>
+              <dd>{i === 3 && <span className="pill-dot" aria-hidden="true" />}{v}</dd>
+            </div>
+          ))}
         </dl>
       </div>
     </section>

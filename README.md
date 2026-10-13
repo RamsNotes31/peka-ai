@@ -8,6 +8,8 @@ Landing page pra-rilis untuk [peka.ai.id](https://peka.ai.id). Peka adalah kumpu
 
 Dibangun dengan Vite dan React, CSS murni, tanpa library UI.
 
+Bahasa utama English, Bahasa Indonesia sebagai opsi (toggle EN/ID di navbar, tersimpan di localStorage, mengikuti bahasa browser saat pertama kali). Semua teks ada di `src/i18n.jsx`, satu objek per bahasa. Ubah copy di sana, bukan di komponen.
+
 ## Isi halaman
 
 | Section | Isi |
@@ -76,7 +78,8 @@ Arah lengkap ada di [DESIGN.md](DESIGN.md). Ringkasnya:
 - Tipografi: Inter Tight untuk headline dan body, Space Mono uppercase untuk label, feed, dan output.
 - Kuning Peka `#ffd60a` hanya sebagai isian (highlight, logo, meter positif, pill alert). Tidak pernah sebagai warna teks.
 - Motif pengukuran: ruler bertik, meter bertik, crosshair, dot-mark sudut. Logo memakai crosshair yang sama.
-- Satu elemen dekoratif: stiker holografik di papan primitif.
+- Empat karakter stiker holografik di `src/components/Stickers.jsx`, masing-masing di bagian yang maknanya cocok: Bubble (teks yang dibaca) di hero, Radar (sumber) di kartu 03, Bell (alert) di kartu 04, Lens (memeriksa) di panel output demo.
+- Nama produk selain yang pertama disensor sebagai bar hitam "Coming soon" sampai siap dicoba.
 - Tema terang saja. Motion hanya hover dan transisi state.
 
 Token warna dan font ada di `:root` pada `src/index.css`. Ganti di sana, bukan per komponen.

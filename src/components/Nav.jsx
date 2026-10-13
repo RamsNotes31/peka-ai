@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import LogoMark from './Logo.jsx';
-
-const LINKS = [
-  { href: '#produk', label: 'Produk' },
-  { href: '#demo', label: 'Demo' },
-  { href: '#kenapa', label: 'Kenapa Peka' },
-];
+import { useLang } from '../i18n.jsx';
 
 export default function Nav() {
+  const { t, lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
   const menuBtn = useRef(null);
+
+  const links = [
+    { href: '#produk', label: t.nav.products },
+    { href: '#demo', label: t.nav.demo },
+    { href: '#kenapa', label: t.nav.why },
+  ];
 
   useEffect(() => {
     if (!open) return;
@@ -26,28 +28,32 @@ export default function Nav() {
   return (
     <header className="nav">
       <div className="frame nav-inner">
-        <a className="brand" href="#top" aria-label="Peka, beranda">
+        <a className="brand" href="#top" aria-label="Peka">
           <LogoMark size={20} />
           peka
         </a>
         <span className="mono meta">
-          <span>V0.1</span>
-          <span>Pra-rilis</span>
+          <span>{t.nav.meta[0]}</span>
+          <span>{t.nav.meta[1]}</span>
         </span>
 
-        <nav className={`nav-links${open ? ' open' : ''}`} id="nav-links" aria-label="Navigasi utama">
-          {LINKS.map((l) => (
+        <nav className={`nav-links${open ? ' open' : ''}`} id="nav-links" aria-label="Main">
+          {links.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</a>
           ))}
         </nav>
 
         <div className="nav-actions">
-          <a className="btn btn-sm" href="#akses-awal">Akses awal</a>
+          <div className="lang mono" role="group" aria-label={t.nav.lang}>
+            <button type="button" aria-pressed={lang === 'en'} onClick={() => setLang('en')}>EN</button>
+            <button type="button" aria-pressed={lang === 'id'} onClick={() => setLang('id')}>ID</button>
+          </div>
+          <a className="btn btn-sm" href="#akses-awal">{t.nav.access}</a>
           <button
             ref={menuBtn}
             className="icon-btn menu-btn"
             type="button"
-            aria-label={open ? 'Tutup menu' : 'Buka menu'}
+            aria-label={open ? t.nav.menuClose : t.nav.menuOpen}
             aria-expanded={open}
             aria-controls="nav-links"
             onClick={() => setOpen((o) => !o)}

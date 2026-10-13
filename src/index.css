@@ -113,6 +113,7 @@ a { color: inherit; }
 .hero h1 mark { background: linear-gradient(transparent 58%, var(--accent) 58%); color: inherit; padding: 0 0.04em; }
 .cta-row { margin-top: 32px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
 .hero-side { padding: 72px var(--gutter) 40px; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+.hero-side .lead { margin-top: 110px; }
 .lead { font-size: 1.125rem; color: var(--muted); max-width: 38ch; }
 .spec-list { margin: 0; display: grid; }
 .spec-list div { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-top: 1px solid var(--line); }
@@ -169,12 +170,28 @@ a { color: inherit; }
 .dist .hit span:first-child { color: var(--fg); font-weight: 700; }
 .dist .hit .dist-bar i { background: var(--accent); outline: 1px solid var(--fg); }
 
+/* Stiker karakter: satu per bagian, posisi absolut, tidak menangkap klik. */
 .sticker {
-  position: absolute; z-index: 2; width: 150px; height: auto;
-  top: 6px; right: 23%; transform: rotate(-9deg);
-  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+  position: absolute; z-index: 2; height: auto;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.18));
   pointer-events: none;
 }
+.sticker-hero { width: 128px; top: 22px; right: 24px; transform: rotate(8deg); }
+.sticker-c3 { width: 92px; top: 8px; right: 14px; transform: rotate(-10deg); }
+.sticker-c4 { width: 80px; top: 10px; right: 18px; transform: rotate(12deg); }
+.sticker-demo { width: 110px; right: -10px; bottom: -14px; transform: rotate(-12deg); }
+.card, .hero-side, .demo-output { position: relative; }
+
+/* Nama produk yang disensor: bar hitam dengan label. */
+.redacted { display: inline-flex; align-items: center; justify-self: start; min-height: 1.6em; padding: 0 12px; background: var(--fg); color: var(--bg); letter-spacing: 0; }
+.redacted span { font-size: 0.75rem; }
+
+/* Pilihan bahasa di nav. */
+.lang { display: inline-flex; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.lang button { font: inherit; background: transparent; border: 0; color: var(--muted); padding: 0 10px; min-height: 36px; cursor: pointer; }
+.lang button + button { border-left: 1px solid var(--line); }
+.lang button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+.lang button:focus-visible { outline-offset: -2px; }
 
 /* Feed: log rows. */
 .feed { border-bottom: 1px solid var(--line); }
@@ -273,7 +290,6 @@ a { color: inherit; }
   .card + .card { border-left: 0; }
   .card:nth-child(odd) { border-right: 1px solid var(--line); }
   .card:nth-child(n+4) { border-top: 1px solid var(--line); }
-  .sticker { right: 8%; }
   .demo, .why, .access { grid-template-columns: 1fr; }
   .demo-input { border-right: 0; border-bottom: 1px solid var(--line); }
   .why, .access { gap: 28px; }
@@ -306,10 +322,14 @@ a { color: inherit; }
   .ruler { max-width: none; }
   .dotmark.tl { top: 10px; }
   .hero-side { padding: 32px var(--gutter); gap: 28px; }
+  .hero-side .lead { margin-top: 64px; }
   .board { grid-template-columns: 1fr; }
   .card { min-height: 0; border-right: 0 !important; }
   .card + .card { border-top: 1px solid var(--line); }
-  .sticker { width: 110px; top: -24px; right: 12px; }
+  .sticker-hero { width: 84px; top: 10px; right: 12px; }
+  .sticker-c3, .sticker-c4 { width: 64px; top: 10px; right: 10px; }
+  .sticker-demo { width: 80px; right: 6px; bottom: 6px; }
+  .lang button { min-height: 44px; }
   .feed-list li { grid-template-columns: 1fr; gap: 6px; }
   .feed-list .txt { white-space: normal; }
   .section { padding: 56px var(--gutter); }
