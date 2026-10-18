@@ -6,6 +6,7 @@ export default function Footer() {
     { href: '#live', label: t.nav.live },
     { href: '#produk', label: t.nav.products },
     { href: '#demo', label: t.nav.demo },
+    { href: '#sosmed', label: t.nav.social },
     { href: '#kenapa', label: t.nav.why },
     { href: '#akses-awal', label: t.nav.access },
   ];

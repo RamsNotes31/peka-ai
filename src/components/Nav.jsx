@@ -11,6 +11,7 @@ export default function Nav() {
     { href: '#live', label: t.nav.live },
     { href: '#produk', label: t.nav.products },
     { href: '#demo', label: t.nav.demo },
+    { href: '#sosmed', label: t.nav.social },
     { href: '#kenapa', label: t.nav.why },
   ];
 
@@ -30,7 +31,7 @@ export default function Nav() {
     <header className="nav">
       <div className="frame nav-inner">
         <a className="brand" href="#top" aria-label="Peka">
-          <LogoMark size={20} />
+          <LogoMark size={26} />
           peka
         </a>
         <span className="mono meta">

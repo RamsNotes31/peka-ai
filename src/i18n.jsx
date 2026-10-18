@@ -9,7 +9,7 @@ export const LINKS = {
 
 export const STRINGS = {
   en: {
-    nav: { live: 'Live', products: 'Products', demo: 'Try it', why: 'Why Peka', access: 'Early access', meta: ['V0.2', 'Pre-release'], menuOpen: 'Open menu', menuClose: 'Close menu', skip: 'Skip to content', lang: 'Language' },
+    nav: { live: 'Live', products: 'Products', demo: 'Try it', social: 'Social', why: 'Why Peka', access: 'Early access', meta: ['V0.2', 'Pre-release'], menuOpen: 'Open menu', menuClose: 'Close menu', skip: 'Skip to content', lang: 'Language' },
     hero: {
       eyebrow: 'peka.ai.id / pre-release',
       h1a: 'Finally, AI that gets what ',
@@ -73,6 +73,17 @@ export const STRINGS = {
       note: 'auto-synced from blog.peka.ai.id',
       open: 'Read every post',
     },
+    social: {
+      eyebrow: 'Follow along',
+      h2: 'Peka AI, twice a day on your timeline.',
+      lead: 'AI news, tools, and projects, plus verified bansos info. The same content as the blog, in social form. New posts around noon and night, WIB.',
+      open: 'Open',
+      items: [
+        { name: 'Instagram', handle: '@peka.ai.id', desc: 'Daily posts with visuals, full captions, and hashtags.' },
+        { name: 'Threads', handle: '@peka.ai.id', desc: 'Short takes and hot AI topics, straight from the timeline.' },
+        { name: 'Facebook', handle: 'PekaAI', desc: 'Every post in full, shared to the Page.' },
+      ],
+    },
     products: {
       eyebrow: 'All products',
       h2: 'One idea, several tools: read what Indonesia is saying.',
@@ -133,7 +144,7 @@ export const STRINGS = {
   },
 
   id: {
-    nav: { live: 'Sudah jalan', products: 'Produk', demo: 'Coba', why: 'Kenapa Peka', access: 'Akses awal', meta: ['V0.2', 'Pra-rilis'], menuOpen: 'Buka menu', menuClose: 'Tutup menu', skip: 'Lewati ke konten', lang: 'Bahasa' },
+    nav: { live: 'Sudah jalan', products: 'Produk', demo: 'Coba', social: 'Sosmed', why: 'Kenapa Peka', access: 'Akses awal', meta: ['V0.2', 'Pra-rilis'], menuOpen: 'Buka menu', menuClose: 'Tutup menu', skip: 'Lewati ke konten', lang: 'Bahasa' },
     hero: {
       eyebrow: 'peka.ai.id / pra-rilis',
       h1a: 'Akhirnya, AI yang ngerti apa yang lagi diomongin ',
@@ -196,6 +207,17 @@ export const STRINGS = {
       title: 'Update terbaru dari blog Peka AI',
       note: 'tersinkron otomatis dari blog.peka.ai.id',
       open: 'Baca semua tulisan',
+    },
+    social: {
+      eyebrow: 'Ikutin',
+      h2: 'Peka AI, dua kali sehari di linimasamu.',
+      lead: 'Info AI, tools, dan project, plus info bansos terverifikasi — isinya sama kayak blog, versi sosmed. Postingan baru sekitar siang dan malam WIB.',
+      open: 'Buka',
+      items: [
+        { name: 'Instagram', handle: '@peka.ai.id', desc: 'Postingan harian bergambar, caption lengkap, plus hashtag.' },
+        { name: 'Threads', handle: '@peka.ai.id', desc: 'Take singkat dan topik AI yang lagi rame, langsung dari linimasa.' },
+        { name: 'Facebook', handle: 'PekaAI', desc: 'Semua postingan versi lengkap, dibagikan ke Page.' },
+      ],
     },
     products: {
       eyebrow: 'Semua produk',

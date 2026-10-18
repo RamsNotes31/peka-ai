@@ -4,6 +4,7 @@ import Live from './components/Live.jsx';
 import SpecBoard from './components/SpecBoard.jsx';
 import Feed from './components/Feed.jsx';
 import BlogUpdates from './components/BlogUpdates.jsx';
+import Social from './components/Social.jsx';
 import Products from './components/Products.jsx';
 import Demo from './components/Demo.jsx';
 import Why from './components/Why.jsx';
@@ -23,6 +24,7 @@ export default function App() {
         <SpecBoard />
         <Feed />
         <BlogUpdates />
+        <Social />
         <Products />
         <Demo />
         <Why />

@@ -61,7 +61,7 @@ a { color: inherit; }
 .nav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line); }
 .nav-inner { display: flex; align-items: center; gap: 24px; height: 60px; padding: 0 var(--gutter); }
 .brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; letter-spacing: -0.03em; text-decoration: none; font-size: 1.0625rem; }
-.logo-mark { flex: none; }
+.logo-mark { flex: none; border-radius: 50%; }
 .meta { display: flex; gap: 12px; color: var(--muted); }
 .nav-links { display: flex; gap: 20px; margin-left: auto; }
 .nav-links a { text-decoration: none; font-size: 0.9375rem; color: var(--muted); }
@@ -215,6 +215,15 @@ a { color: inherit; }
 .score i { background: var(--accent); }
 .feed-foot { padding: 14px var(--gutter); border-top: 1px solid var(--line); }
 
+/* Social accounts: three cards sharing hairlines. */
+.social-grid { margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); }
+.social-card { padding: 28px; display: grid; gap: 10px; align-content: start; text-decoration: none; color: inherit; }
+.social-card + .social-card { border-left: 1px solid var(--line); }
+.social-card:hover { background: #ffffff; }
+.social-handle { font-size: 1.75rem; letter-spacing: -0.03em; font-weight: 600; }
+.social-desc { color: var(--muted); font-size: 0.9375rem; }
+.social-card .link { margin-top: 6px; }
+
 /* Blog updates: rows fed live by blog.peka.ai.id/api/posts.json. */
 .blogup { border-bottom: 1px solid var(--line); }
 .blogup-list { list-style: none; margin: 0; padding: 0; }
@@ -350,6 +359,8 @@ a { color: inherit; }
   .card:nth-child(odd) { border-right: 1px solid var(--line); }
   .card:nth-child(n+4) { border-top: 1px solid var(--line); }
   .demo, .why, .access, .live-grid { grid-template-columns: 1fr; }
+  .social-grid { grid-template-columns: 1fr; }
+  .social-card + .social-card { border-left: 0; border-top: 1px solid var(--line); }
   .live-card + .live-card { border-left: 0; border-top: 1px solid var(--line); }
   .demo-input { border-right: 0; border-bottom: 1px solid var(--line); }
   .why, .access { gap: 28px; }
