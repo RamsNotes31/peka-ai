@@ -3,6 +3,7 @@ import Hero from './components/Hero.jsx';
 import Live from './components/Live.jsx';
 import SpecBoard from './components/SpecBoard.jsx';
 import Feed from './components/Feed.jsx';
+import BlogUpdates from './components/BlogUpdates.jsx';
 import Products from './components/Products.jsx';
 import Demo from './components/Demo.jsx';
 import Why from './components/Why.jsx';
@@ -21,6 +22,7 @@ export default function App() {
         <Live />
         <SpecBoard />
         <Feed />
+        <BlogUpdates />
         <Products />
         <Demo />
         <Why />

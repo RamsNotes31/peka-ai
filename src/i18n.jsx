@@ -68,6 +68,11 @@ export const STRINGS = {
       note: 'snapshot, 13 Oct 2026 · WIB',
       open: 'Open the live timeline',
     },
+    blog: {
+      title: 'Fresh from the Peka AI blog',
+      note: 'auto-synced from blog.peka.ai.id',
+      open: 'Read every post',
+    },
     products: {
       eyebrow: 'All products',
       h2: 'One idea, several tools: read what Indonesia is saying.',
@@ -186,6 +191,11 @@ export const STRINGS = {
       title: 'Lagi hangat di Warganet AI',
       note: 'cuplikan, 13 Okt 2026 · WIB',
       open: 'Buka linimasa live',
+    },
+    blog: {
+      title: 'Update terbaru dari blog Peka AI',
+      note: 'tersinkron otomatis dari blog.peka.ai.id',
+      open: 'Baca semua tulisan',
     },
     products: {
       eyebrow: 'Semua produk',
