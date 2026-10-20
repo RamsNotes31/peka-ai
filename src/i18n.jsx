@@ -77,7 +77,8 @@ export const STRINGS = {
       title: 'The daily lineup',
       note: 'all times WIB · one series per slot',
       items: [
-        { time: '09:36', name: 'AI News', tag: 'Homeless Media', desc: 'The one AI story everyone will be talking about today, picked from 8 news feeds and turned into a carousel.', where: 'Instagram · Threads · Facebook · Blog' },
+        { time: '09:36', name: 'AI News', tag: 'Homeless Media', desc: 'The one AI story everyone will be talking about today, picked from 8 news feeds and told in full: carousel, a multi-post thread, and a complete blog write-up.', where: 'Instagram · Threads · Facebook · Blog' },
+        { time: '12:30', name: 'Daily Prompt', tag: 'Ready to copy', desc: 'One ready-to-use AI prompt every day, rotating through content, career, study, business, productivity, and writing. The full prompt sits in the post, ready to copy.', where: 'Instagram · Threads · Facebook' },
         { time: '19:00', name: 'Peka Store', tag: 'Daily deals', desc: 'The full 8-slide price list for premium apps, with a fresh caption angle every day.', where: 'Threads · Facebook' },
         { time: '21:30', name: 'SPILL Repo', tag: 'Numbered series', desc: 'Five GitHub repos full of ready-to-use agent skills, one slide per repo. Claude and Hermes take turns, the full links land in the comments, and every edition gets a complete blog write-up with the specs.', where: 'Instagram · Threads · Facebook · Blog' },
         { time: 'Free slot', name: 'Bansos', tag: 'Verified freebies', desc: 'Free courses, free VPS, free tools. Verified first, then posted in whichever slot is still empty that day.', where: 'Threads · Instagram · Blog' },
@@ -85,8 +86,8 @@ export const STRINGS = {
     },
     social: {
       eyebrow: 'Follow along',
-      h2: 'Peka AI, twice a day on your timeline.',
-      lead: 'AI news, tools, and projects, plus verified bansos info. The same content as the blog, in social form. New posts around noon and night, WIB.',
+      h2: 'Peka AI, four times a day on your timeline.',
+      lead: 'AI news, a daily ready-to-use prompt, tools, and projects, plus verified bansos info. New posts at 09:36, 12:30, 19:00, and 21:30 WIB.',
       open: 'Open',
       items: [
         { name: 'Instagram', handle: '@peka.ai.id', desc: 'Daily posts with visuals, full captions, and hashtags.' },
@@ -222,7 +223,8 @@ export const STRINGS = {
       title: 'Rangkaian konten harian',
       note: 'semua jam WIB · satu seri per slot',
       items: [
-        { time: '09:36', name: 'Berita AI', tag: 'Homeless Media', desc: 'Satu berita AI yang paling ramai hari itu, dipilih dari 8 feed berita lalu dijadikan carousel.', where: 'Instagram · Threads · Facebook · Blog' },
+        { time: '09:36', name: 'Berita AI', tag: 'Homeless Media', desc: 'Satu berita AI yang paling ramai hari itu, dipilih dari 8 feed berita lalu diceritakan lengkap: carousel, thread bersambung, dan versi blog utuh.', where: 'Instagram · Threads · Facebook · Blog' },
+        { time: '12:30', name: 'Prompt Harian', tag: 'Siap salin', desc: 'Satu prompt AI siap pakai tiap hari, rotasi kategori konten, karier, kuliah, bisnis, produktivitas, dan nulis. Prompt lengkapnya ada di postingan, tinggal salin.', where: 'Instagram · Threads · Facebook' },
         { time: '19:00', name: 'Peka Store', tag: 'Jualan harian', desc: 'Daftar harga lengkap 8 slide buat aplikasi premium, angle captionnya ganti tiap hari.', where: 'Threads · Facebook' },
         { time: '21:30', name: 'SPILL Repo', tag: 'Seri bernomor', desc: 'Lima repo GitHub berisi skill agent siap pakai, satu slide per repo. Claude dan Hermes bergantian, link lengkapnya di komentar, dan tiap edisi ada versi blog lengkap plus speknya.', where: 'Instagram · Threads · Facebook · Blog' },
         { time: 'Jam kosong', name: 'Bansos', tag: 'Info gratisan terverifikasi', desc: 'Kursus gratis, VPS gratis, tools gratis. Diverifikasi dulu, lalu tayang di jam yang masih kosong hari itu.', where: 'Threads · Instagram · Blog' },
@@ -230,8 +232,8 @@ export const STRINGS = {
     },
     social: {
       eyebrow: 'Ikutin',
-      h2: 'Peka AI, dua kali sehari di linimasamu.',
-      lead: 'Info AI, tools, dan project, plus info bansos terverifikasi — isinya sama kayak blog, versi sosmed. Postingan baru sekitar siang dan malam WIB.',
+      h2: 'Peka AI, empat kali sehari di linimasamu.',
+      lead: 'Berita AI, prompt harian siap pakai, tools, dan project, plus info bansos terverifikasi. Postingan baru jam 09:36, 12:30, 19:00, dan 21:30 WIB.',
       open: 'Buka',
       items: [
         { name: 'Instagram', handle: '@peka.ai.id', desc: 'Postingan harian bergambar, caption lengkap, plus hashtag.' },
