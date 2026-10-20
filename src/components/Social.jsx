@@ -4,7 +4,7 @@ import { Eyebrow } from './Hero.jsx';
 const URLS = {
   Instagram: 'https://www.instagram.com/peka.ai.id',
   Threads: 'https://www.threads.com/@peka.ai.id',
-  Facebook: 'https://www.facebook.com/61594934228841',
+  Facebook: 'https://www.facebook.com/peka.ai.id',
 };
 
 // Peka AI's own social accounts. Same content as the blog, posted twice daily.
