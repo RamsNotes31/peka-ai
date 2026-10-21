@@ -15,6 +15,7 @@ export default function Footer() {
       <span>peka.ai.id</span>
       <nav aria-label="Footer" className="footer-links">
         {links.map((l) => <a key={l.href} href={l.href}>{l.label}</a>)}
+        <a href="https://url.peka.ai.id" target="_blank" rel="noreferrer">url.peka.ai.id</a>
       </nav>
       <span className="muted">{t.footer.made} · {new Date().getFullYear()}</span>
     </footer>
