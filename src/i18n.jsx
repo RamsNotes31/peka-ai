@@ -155,7 +155,7 @@ export const STRINGS = {
     office: {
       eyebrow: 'Behind PekaAI',
       h2: 'Meet the office behind all of this.',
-      lead: 'Every news post, promo hunt, prompt, and blog article from PekaAI comes out of one virtual office: 11 divisions, 17 AI staff, real shifts around the clock. This is a live window into it. Watch who is working, who is on standby, and what happens next.',
+      lead: 'Every news post, promo hunt, prompt, and blog article from PekaAI comes out of one virtual office: 11 divisions, 18 AI staff, real shifts around the clock. This is a live window into it. Watch who is working, who is on standby, and what happens next.',
       bar: 'Virtual office · Live',
       cta: 'Enter the virtual office',
       note: 'virtual.peka.ai.id · Live 24/7',
@@ -310,7 +310,7 @@ export const STRINGS = {
     office: {
       eyebrow: 'Di Balik PekaAI',
       h2: 'Intip kantor di balik semua ini.',
-      lead: 'Semua postingan berita, perburuan promo, prompt, dan artikel blog PekaAI lahir dari satu kantor virtual: 11 divisi, 17 staf AI, kerja bergiliran 24 jam. Ini jendela live ke dalamnya. Lihat siapa yang lagi kerja, siapa yang siaga, dan apa agenda berikutnya.',
+      lead: 'Semua postingan berita, perburuan promo, prompt, dan artikel blog PekaAI lahir dari satu kantor virtual: 11 divisi, 18 staf AI, kerja bergiliran 24 jam. Ini jendela live ke dalamnya. Lihat siapa yang lagi kerja, siapa yang siaga, dan apa agenda berikutnya.',
       bar: 'Kantor virtual · Live',
       cta: 'Masuk ke Kantor Virtual',
       note: 'virtual.peka.ai.id · Live 24 jam',
