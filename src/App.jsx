@@ -6,6 +6,7 @@ import Feed from './components/Feed.jsx';
 import BlogUpdates from './components/BlogUpdates.jsx';
 import Lineup from './components/Lineup.jsx';
 import Social from './components/Social.jsx';
+import Office from './components/Office.jsx';
 import Products from './components/Products.jsx';
 import Demo from './components/Demo.jsx';
 import Why from './components/Why.jsx';
@@ -26,6 +27,7 @@ export default function App() {
         <Feed />
         <BlogUpdates />
         <Lineup />
+        <Office />
         <Social />
         <Products />
         <Demo />

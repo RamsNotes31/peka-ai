@@ -5,6 +5,7 @@ const KEY = 'peka-lang';
 export const LINKS = {
   warganet: 'https://warganet.peka.ai.id',
   wowo: 'https://wowo.peka.ai.id',
+  virtual: 'https://virtual.peka.ai.id',
 };
 
 export const STRINGS = {
@@ -151,6 +152,15 @@ export const STRINGS = {
       invalid: "That email doesn't look right.",
       error: "Didn't go through. Try again in a bit.",
     },
+    office: {
+      eyebrow: 'Behind PekaAI',
+      h2: 'Meet the office behind all of this.',
+      lead: 'Every news post, promo hunt, prompt, and blog article from PekaAI comes out of one virtual office: 11 divisions, 17 AI staff, real shifts around the clock. This is a live window into it. Watch who is working, who is on standby, and what happens next.',
+      bar: 'Virtual office · Live',
+      cta: 'Enter the virtual office',
+      note: 'virtual.peka.ai.id · Live 24/7',
+      frameTitle: 'PekaAI virtual office: live status board and 3D office',
+    },
     footer: { made: 'Made in Indonesia' },
   },
 
@@ -296,6 +306,15 @@ export const STRINGS = {
       ok: 'Kamu sudah masuk daftar. Kami email saat alat berikutnya dibuka.',
       invalid: 'Emailnya kayaknya belum benar.',
       error: 'Belum terkirim. Coba lagi sebentar.',
+    },
+    office: {
+      eyebrow: 'Di Balik PekaAI',
+      h2: 'Intip kantor di balik semua ini.',
+      lead: 'Semua postingan berita, perburuan promo, prompt, dan artikel blog PekaAI lahir dari satu kantor virtual: 11 divisi, 17 staf AI, kerja bergiliran 24 jam. Ini jendela live ke dalamnya. Lihat siapa yang lagi kerja, siapa yang siaga, dan apa agenda berikutnya.',
+      bar: 'Kantor virtual · Live',
+      cta: 'Masuk ke Kantor Virtual',
+      note: 'virtual.peka.ai.id · Live 24 jam',
+      frameTitle: 'Kantor virtual PekaAI: papan status live dan kantor 3D',
     },
     footer: { made: 'Dibuat di Indonesia' },
   },
