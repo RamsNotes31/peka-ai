@@ -12,6 +12,7 @@ export default function Nav() {
     { href: '#produk', label: t.nav.products },
     { href: '#demo', label: t.nav.demo },
     { href: '#sosmed', label: t.nav.social },
+    { href: 'https://tools.peka.ai.id', label: t.nav.tools, target: '_blank' },
     { href: '#kenapa', label: t.nav.why },
   ];
 
@@ -41,7 +42,7 @@ export default function Nav() {
 
         <nav className={`nav-links${open ? ' open' : ''}`} id="nav-links" aria-label="Main">
           {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</a>
+            <a key={l.href} href={l.href} target={l.target} rel={l.target ? 'noopener' : undefined} onClick={() => setOpen(false)}>{l.label}</a>
           ))}
         </nav>
 
