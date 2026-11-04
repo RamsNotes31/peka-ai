@@ -49,6 +49,12 @@ a { color: inherit; }
 .skip { position: absolute; left: 12px; top: -100px; z-index: 100; padding: 8px 12px; background: var(--fg); color: var(--bg); }
 .skip:focus { top: 12px; }
 
+/* Top sales banner: first thing on the page, above the sticky nav. */
+.topbanner { background: var(--accent); color: var(--fg); }
+.topbanner p { max-width: var(--frame-w); margin: 0 auto; padding: 10px var(--gutter); text-align: center; font-size: 0.9375rem; font-weight: 600; line-height: 1.4; }
+.topbanner a { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.topbanner a:hover { text-decoration-thickness: 2px; }
+
 /* Frame: two vertical rules, Vercel-style. */
 .frame {
   width: min(100%, var(--frame-w));

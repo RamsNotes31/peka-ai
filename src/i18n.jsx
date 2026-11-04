@@ -11,6 +11,7 @@ export const LINKS = {
 export const STRINGS = {
   en: {
     nav: { live: 'Live', products: 'Products', demo: 'Try it', social: 'Social', why: 'Why Peka', tools: 'Tools', access: 'Early access', meta: ['V0.2', 'Pre-release'], menuOpen: 'Open menu', menuClose: 'Close menu', skip: 'Skip to content', lang: 'Language' },
+    banner: { text: "Want to build social media automation like Peka's?", link: 'Buy the tutorial here' },
     hero: {
       eyebrow: 'peka.ai.id / pre-release',
       h1a: 'Finally, AI that gets what ',
@@ -166,6 +167,7 @@ export const STRINGS = {
 
   id: {
     nav: { live: 'Sudah jalan', products: 'Produk', demo: 'Coba', social: 'Sosmed', why: 'Kenapa Peka', tools: 'Tools', access: 'Akses awal', meta: ['V0.2', 'Pra-rilis'], menuOpen: 'Buka menu', menuClose: 'Tutup menu', skip: 'Lewati ke konten', lang: 'Bahasa' },
+    banner: { text: 'Mau bikin automation sosial media kayak Peka?', link: 'Bisa beli tutornya di sini' },
     hero: {
       eyebrow: 'peka.ai.id / pra-rilis',
       h1a: 'Akhirnya, AI yang ngerti apa yang lagi diomongin ',

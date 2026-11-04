@@ -1,4 +1,5 @@
 import Nav from './components/Nav.jsx';
+import Banner from './components/Banner.jsx';
 import Hero from './components/Hero.jsx';
 import Live from './components/Live.jsx';
 import SpecBoard from './components/SpecBoard.jsx';
@@ -19,6 +20,7 @@ export default function App() {
   return (
     <>
       <a className="skip" href="#live">{t.nav.skip}</a>
+      <Banner />
       <Nav />
       <main id="top">
         <Hero />
