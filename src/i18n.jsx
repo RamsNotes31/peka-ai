@@ -39,7 +39,7 @@ export const STRINGS = {
       body: 'The latest AI news, freebies, and AI discussions. News lands in the group first, before it hits the feed.',
       wa: 'Join WhatsApp Group',
       tg: 'Join Telegram Group',
-      note: 'Free, no sign-up. Leave anytime.',
+      note: 'Free, no sign-up.',
       close: 'Close',
     },
     hero: {
@@ -225,7 +225,7 @@ export const STRINGS = {
       body: 'Info AI terbaru, bansos, dan diskusi seputar AI. Info naik duluan di grup, sebelum naik ke feed.',
       wa: 'Gabung Grup WhatsApp',
       tg: 'Gabung Grup Telegram',
-      note: 'Gratis, tanpa daftar. Keluar kapan saja.',
+      note: 'Gratis, tanpa daftar.',
       close: 'Tutup',
     },
     hero: {
