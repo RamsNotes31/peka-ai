@@ -33,6 +33,15 @@ export const STRINGS = {
       error: 'The chatbot is busy right now, please try again in a bit.',
       chips: ['What is on the Peka Store?', 'How do I buy on Telegram?', 'What is Peka?'],
     },
+    community: {
+      eyebrow: 'PEKA AI COMMUNITY',
+      title: 'Join the Peka AI Community',
+      body: 'The latest AI news, freebies, and AI discussions. News lands in the group first, before it hits the feed.',
+      wa: 'Join WhatsApp Group',
+      tg: 'Join Telegram Group',
+      note: 'Free, no sign-up. Leave anytime.',
+      close: 'Close',
+    },
     hero: {
       eyebrow: 'peka.ai.id / pre-release',
       h1a: 'Finally, AI that gets what ',
@@ -209,6 +218,15 @@ export const STRINGS = {
       typing: 'Peka lagi ngetik...',
       error: 'Chatbot lagi sibuk, coba lagi sebentar lagi ya.',
       chips: ['Produk apa aja di Peka Store?', 'Cara beli lewat Telegram?', 'Peka itu apa sih?'],
+    },
+    community: {
+      eyebrow: 'KOMUNITAS PEKA AI',
+      title: 'Gabung Komunitas Peka AI',
+      body: 'Info AI terbaru, bansos, dan diskusi seputar AI. Info naik duluan di grup, sebelum naik ke feed.',
+      wa: 'Gabung Grup WhatsApp',
+      tg: 'Gabung Grup Telegram',
+      note: 'Gratis, tanpa daftar. Keluar kapan saja.',
+      close: 'Tutup',
     },
     hero: {
       eyebrow: 'peka.ai.id / pra-rilis',
