@@ -30,7 +30,7 @@ export const STRINGS = {
       close: 'Close chat',
       open: 'Open the Peka chat',
       typing: 'Peka is typing...',
-      error: 'Muse is busy right now, please try again in a bit.',
+      error: 'The chatbot is busy right now, please try again in a bit.',
       chips: ['What is on the Peka Store?', 'How do I buy on Telegram?', 'What is Peka?'],
     },
     hero: {
@@ -207,7 +207,7 @@ export const STRINGS = {
       close: 'Tutup chat',
       open: 'Buka chat Peka',
       typing: 'Peka lagi ngetik...',
-      error: 'Muse lagi sibuk, coba lagi sebentar lagi ya.',
+      error: 'Chatbot lagi sibuk, coba lagi sebentar lagi ya.',
       chips: ['Produk apa aja di Peka Store?', 'Cara beli lewat Telegram?', 'Peka itu apa sih?'],
     },
     hero: {
