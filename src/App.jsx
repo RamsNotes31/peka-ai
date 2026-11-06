@@ -14,6 +14,7 @@ import Why from './components/Why.jsx';
 import Access from './components/Access.jsx';
 import Footer from './components/Footer.jsx';
 import PremiBotPopup from './components/PremiBotPopup.jsx';
+import ChatBot from './components/ChatBot.jsx';
 import { useLang } from './i18n.jsx';
 
 export default function App() {
@@ -39,6 +40,7 @@ export default function App() {
       </main>
       <Footer />
       <PremiBotPopup />
+      <ChatBot />
     </>
   );
 }
