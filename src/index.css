@@ -452,3 +452,58 @@ a { color: inherit; }
 @media (max-width: 640px) {
   .office-frame { height: 74vh; min-height: 420px; }
 }
+
+/* PremiApp bot slide-in: Telegram order channel. Slides in bottom-right. */
+.premibot-panel {
+  position: fixed; right: 20px; bottom: 20px; z-index: 90;
+  width: min(calc(100% - 40px), 380px);
+  background: #fff; border: 1px solid var(--line-strong); border-radius: var(--radius);
+  box-shadow: 8px 8px 0 rgba(17, 17, 17, 0.9);
+  padding: 28px;
+  transform: translateX(calc(100% + 40px));
+  visibility: hidden;
+  transition: transform 320ms ease, visibility 0s linear 320ms;
+}
+.premibot-panel.open {
+  transform: translateX(0);
+  visibility: visible;
+  transition: transform 320ms ease;
+}
+.premibot-close {
+  position: absolute; top: 12px; right: 12px;
+  width: 36px; height: 36px;
+  display: grid; place-items: center;
+  background: transparent; border: 1px solid var(--line); border-radius: var(--radius);
+  font-size: 1.25rem; line-height: 1; color: var(--fg); cursor: pointer;
+}
+.premibot-close:hover { background: var(--bg); }
+.premibot-tile {
+  display: grid; place-items: center;
+  width: 52px; height: 52px; margin-bottom: 18px;
+  background: var(--accent); border: 1px solid var(--line-strong); border-radius: var(--radius);
+}
+.premibot-tile svg { width: 26px; height: 26px; fill: var(--fg); }
+.premibot-eyebrow { color: var(--muted); margin-bottom: 10px; }
+.premibot-panel h3 { font-size: 1.625rem; margin-bottom: 10px; }
+.premibot-body { color: var(--muted); font-size: 0.9375rem; line-height: 1.55; margin-bottom: 20px; }
+.premibot-cta { width: 100%; margin-bottom: 12px; }
+.premibot-cta svg { width: 18px; height: 18px; fill: currentColor; }
+.premibot-handle { text-align: center; color: var(--muted); margin-bottom: 14px; }
+.premibot-catalog { display: block; text-align: center; font-size: 0.875rem; }
+.premibot-fab {
+  position: fixed; right: 20px; bottom: 20px; z-index: 80;
+  width: 54px; height: 54px;
+  display: grid; place-items: center;
+  background: var(--fg); color: var(--accent);
+  border: 1px solid var(--fg); border-radius: var(--radius);
+  box-shadow: 4px 4px 0 rgba(17, 17, 17, 0.25);
+  cursor: pointer;
+  transition: opacity 200ms ease, visibility 0s;
+}
+.premibot-fab.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.premibot-fab:hover { background: var(--accent); color: var(--fg); }
+.premibot-fab svg { width: 26px; height: 26px; fill: currentColor; }
+@media (max-width: 640px) {
+  .premibot-panel { padding: 24px 20px; right: 14px; bottom: 14px; }
+  .premibot-fab { right: 14px; bottom: 14px; }
+}

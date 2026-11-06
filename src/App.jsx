@@ -13,6 +13,7 @@ import Demo from './components/Demo.jsx';
 import Why from './components/Why.jsx';
 import Access from './components/Access.jsx';
 import Footer from './components/Footer.jsx';
+import PremiBotPopup from './components/PremiBotPopup.jsx';
 import { useLang } from './i18n.jsx';
 
 export default function App() {
@@ -37,6 +38,7 @@ export default function App() {
         <Access />
       </main>
       <Footer />
+      <PremiBotPopup />
     </>
   );
 }

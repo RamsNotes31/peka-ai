@@ -12,6 +12,15 @@ export const STRINGS = {
   en: {
     nav: { live: 'Live', products: 'Products', demo: 'Try it', social: 'Social', why: 'Why Peka', tools: 'Tools', access: 'Early access', meta: ['V0.2', 'Pre-release'], menuOpen: 'Open menu', menuClose: 'Close menu', skip: 'Skip to content', lang: 'Language' },
     banner: { text: "Want to build social media automation like Peka's?", link: 'Buy the tutorial here' },
+    premibot: {
+      eyebrow: 'Buy on Telegram',
+      title: 'Order premium accounts right in Telegram',
+      body: 'Gemini, Canva, CapCut, and dozens more digital products. Chat the bot, pick a product, pay with QRIS, and it is delivered right away.',
+      cta: 'Open the Telegram Bot',
+      catalog: 'Browse the catalog first',
+      close: 'Close popup',
+      open: 'Open the PremiApp bot popup',
+    },
     hero: {
       eyebrow: 'peka.ai.id / pre-release',
       h1a: 'Finally, AI that gets what ',
@@ -168,6 +177,15 @@ export const STRINGS = {
   id: {
     nav: { live: 'Sudah jalan', products: 'Produk', demo: 'Coba', social: 'Sosmed', why: 'Kenapa Peka', tools: 'Tools', access: 'Akses awal', meta: ['V0.2', 'Pra-rilis'], menuOpen: 'Buka menu', menuClose: 'Tutup menu', skip: 'Lewati ke konten', lang: 'Bahasa' },
     banner: { text: 'Mau bikin automation sosial media kayak Peka?', link: 'Bisa beli tutornya di sini' },
+    premibot: {
+      eyebrow: 'Beli lewat Telegram',
+      title: 'Order akun premium langsung di Telegram',
+      body: 'Gemini, Canva, CapCut, dan puluhan produk digital lainnya. Chat botnya, pilih produk, bayar QRIS, langsung dikirim.',
+      cta: 'Buka Bot Telegram',
+      catalog: 'Lihat katalog dulu',
+      close: 'Tutup popup',
+      open: 'Buka popup bot PremiApp',
+    },
     hero: {
       eyebrow: 'peka.ai.id / pra-rilis',
       h1a: 'Akhirnya, AI yang ngerti apa yang lagi diomongin ',
