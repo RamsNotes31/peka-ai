@@ -59,6 +59,7 @@ export default function CommunityModal() {
 
   return (
     <div
+      id="community-overlay"
       className={`community-overlay${open ? ' open' : ''}`}
       role="dialog"
       aria-modal="true"
@@ -67,7 +68,7 @@ export default function CommunityModal() {
       onClick={(e) => { if (e.target === e.currentTarget) setOpen(false); }}
     >
       <div className="community-panel">
-        <button className="community-close" ref={closeRef} type="button" aria-label={t.community.close} onClick={() => setOpen(false)}>&times;</button>
+        <button className="community-close" id="community-close" ref={closeRef} type="button" aria-label={t.community.close} onClick={() => setOpen(false)}>&times;</button>
         <span className="community-tile" aria-hidden="true"><PeopleIcon /></span>
         <p className="community-eyebrow">{t.community.eyebrow}</p>
         <h3>{t.community.title}</h3>
