@@ -125,6 +125,7 @@ export const STRINGS = {
         { name: 'Instagram', handle: '@peka.ai.id', desc: 'Daily posts with visuals, full captions, and hashtags.' },
         { name: 'Threads', handle: '@peka.ai.id', desc: 'Short takes and hot AI topics, straight from the timeline.' },
         { name: 'Facebook', handle: 'PekaAI', desc: 'Every post in full, shared to the Page.' },
+        { name: 'TikTok', handle: '@peka.ai.id', desc: 'Short AI clips and daily highlights.' },
       ],
     },
     products: {
@@ -311,6 +312,7 @@ export const STRINGS = {
         { name: 'Instagram', handle: '@peka.ai.id', desc: 'Postingan harian bergambar, caption lengkap, plus hashtag.' },
         { name: 'Threads', handle: '@peka.ai.id', desc: 'Take singkat dan topik AI yang lagi rame, langsung dari linimasa.' },
         { name: 'Facebook', handle: 'PekaAI', desc: 'Semua postingan versi lengkap, dibagikan ke Page.' },
+        { name: 'TikTok', handle: '@peka.ai.id', desc: 'Klip AI singkat dan highlight harian.' },
       ],
     },
     products: {

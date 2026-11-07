@@ -5,6 +5,7 @@ const URLS = {
   Instagram: 'https://www.instagram.com/peka.ai.id',
   Threads: 'https://www.threads.com/@peka.ai.id',
   Facebook: 'https://www.facebook.com/peka.ai.id',
+  TikTok: 'https://www.tiktok.com/@peka.ai.id',
 };
 
 // Peka AI's own social accounts. Same content as the blog, posted twice daily.
