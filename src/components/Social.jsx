@@ -6,6 +6,7 @@ const URLS = {
   Threads: 'https://www.threads.com/@peka.ai.id',
   Facebook: 'https://www.facebook.com/peka.ai.id',
   TikTok: 'https://www.tiktok.com/@peka.ai.id',
+  X: 'https://x.com/peka_aiid',
 };
 
 // Peka AI's own social accounts. Same content as the blog, posted twice daily.
